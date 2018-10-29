@@ -116,7 +116,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNT-7P-58r">
-                                <rect key="frame" x="38" y="0.0" width="774" height="375"/>
+                                <rect key="frame" x="32" y="0.0" width="751" height="375"/>
                                 <subviews>
                                     <imageView hidden="YES" autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jon-flobrant-230583-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="Uhe-fV-ckC">
                                         <rect key="frame" x="0.0" y="0.0" width="776" height="375"/>
@@ -166,7 +166,7 @@
                                     <constraint firstItem="tMK-cm-B0z" firstAttribute="top" secondItem="Fr0-D9-1h9" secondAttribute="bottom" constant="3" id="DFl-HX-0IU"/>
                                     <constraint firstItem="Fr0-D9-1h9" firstAttribute="leading" secondItem="tMK-cm-B0z" secondAttribute="trailing" constant="-708" id="Naa-w5-5z2"/>
                                     <constraint firstItem="tMK-cm-B0z" firstAttribute="leading" secondItem="QNT-7P-58r" secondAttribute="leading" constant="33" id="apg-iF-vpW"/>
-                                    <constraint firstAttribute="trailing" secondItem="tMK-cm-B0z" secondAttribute="trailing" constant="33" id="efE-s5-hai"/>
+                                    <constraint firstAttribute="trailing" secondItem="tMK-cm-B0z" secondAttribute="trailing" constant="10" id="efE-s5-hai"/>
                                     <constraint firstItem="Fr0-D9-1h9" firstAttribute="width" secondItem="tMK-cm-B0z" secondAttribute="width" id="uBd-ZY-Xhq"/>
                                     <constraint firstAttribute="bottom" secondItem="tMK-cm-B0z" secondAttribute="bottom" constant="33" id="ziE-jt-2Z5"/>
                                 </constraints>
@@ -242,9 +242,9 @@
                             <constraint firstItem="QNT-7P-58r" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SZd-3d-bkE"/>
                             <constraint firstAttribute="bottom" secondItem="QNT-7P-58r" secondAttribute="bottom" id="UTa-0q-AFP"/>
                             <constraint firstItem="Ray-U1-zjW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="2" id="ccY-1M-rsA"/>
-                            <constraint firstAttribute="trailing" secondItem="QNT-7P-58r" secondAttribute="trailing" id="hcO-Ru-I5A"/>
+                            <constraint firstAttribute="trailing" secondItem="QNT-7P-58r" secondAttribute="trailing" constant="29" id="hcO-Ru-I5A"/>
                             <constraint firstItem="Bha-b0-LHf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="pNv-cc-J7J"/>
-                            <constraint firstItem="QNT-7P-58r" firstAttribute="leading" secondItem="Tbk-Pz-mkt" secondAttribute="trailing" constant="6" id="x8r-Y1-BMS"/>
+                            <constraint firstItem="QNT-7P-58r" firstAttribute="leading" secondItem="Tbk-Pz-mkt" secondAttribute="trailing" id="x8r-Y1-BMS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

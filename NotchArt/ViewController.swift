@@ -97,7 +97,7 @@ class ViewController: UIViewController {
         
         //To make the player container view corners curved on true depth available devices.
         
-        if faceIDAvailable == true {
+        if faceIDAvailable == false {
             mainView.layer.cornerRadius = 44.0
             mainView.clipsToBounds = true
             mainView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
