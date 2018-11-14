@@ -53,6 +53,13 @@ class ViewController: UIViewController {
                     
                     self.timeElapsedLabel.alpha = 0
                     self.timeRemainingLabel.alpha = 0
+                    
+                    self.muteButton.alpha = 0
+                    
+                    self.playPauseButton.alpha = 0
+                    self.playPauseButton.isUserInteractionEnabled = false
+                    
+                    self.dismissButton.alpha = 0
                 }
                 
             } else {
@@ -62,6 +69,13 @@ class ViewController: UIViewController {
                     
                     self.timeElapsedLabel.alpha = 1
                     self.timeRemainingLabel.alpha = 1
+                    
+                    self.muteButton.alpha = 1
+                    
+                    self.playPauseButton.alpha = 1
+                    self.playPauseButton.isUserInteractionEnabled = true
+                    
+                    self.dismissButton.alpha = 1
                 }
                 
             }
@@ -91,14 +105,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeElapsedLabel: UILabel!
     @IBOutlet weak var timeRemainingLabel: UILabel!
     
+    @IBOutlet weak var dismissButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         //To make the player container view corners curved on true depth available devices.
-        
-        if faceIDAvailable == false {
-            mainView.layer.cornerRadius = 44.0
+        /*
+        if faceIDAvailable == true{
+            mainView.layer.cornerRadius = 11
             mainView.clipsToBounds = true
             mainView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
             print("Device has faceID")
@@ -108,7 +125,7 @@ class ViewController: UIViewController {
         } else {
             print("Device does not have faceID")
         }
-        
+        */
         initializeVideoPlayerWithVideo()
         
         videoAsset = player?.currentItem?.asset
@@ -127,6 +144,10 @@ class ViewController: UIViewController {
         timeRemainingLabel.layer.cornerRadius = 5.0
         timeRemainingLabel.clipsToBounds = true
         timeRemainingLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+        
+        playPauseButton.layer.cornerRadius = 5.0
+        playPauseButton.clipsToBounds = true
+        playPauseButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
@@ -253,17 +274,20 @@ class ViewController: UIViewController {
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
         if self.isPlaying {
             player?.pause()
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         } else {
             player?.play()
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         }
-        self.isPlaying = !self.isPlaying
         
+        self.isPlaying = !self.isPlaying
+        /*
         UIView.animate(withDuration: 0.2, animations: {
             self.playPauseButton.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         }) { (true) in
             self.playPauseButton.transform = CGAffineTransform.identity
         }
-        
+        */
     }
     
     
@@ -307,12 +331,13 @@ class ViewController: UIViewController {
     
     
     @IBAction func swipedUp(_ sender: UISwipeGestureRecognizer) {
-        UIScreen.main.brightness += 0.1
+        //UIScreen.main.brightness += 0.1
     }
     
     
     @IBAction func swipedDown(_ sender: UISwipeGestureRecognizer) {
-        UIScreen.main.brightness -= 0.1
+        //UIScreen.main.brightness -= 0.1
+        performSegue(withIdentifier: "DismissToListView", sender: nil)
     }
     
     
