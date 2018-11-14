@@ -131,6 +131,17 @@ class ViewController: UIViewController {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
         
+        // Subtitling Sample Code --Delete after use
+        if let group = videoAsset?.mediaSelectionGroup(forMediaCharacteristic: AVMediaCharacteristic.legible) {
+            let locale = Locale(identifier: "es-ES")
+            let options =
+                AVMediaSelectionGroup.mediaSelectionOptions(from: group.options, with: locale)
+            if let option = options.first {
+                // Select Spanish-language subtitle option
+                player?.currentItem?.select(option, in: group)
+            }
+        }
+        // Subtitling -- delete after use!
     }
     
     override func viewWillAppear(_ animated: Bool) {
