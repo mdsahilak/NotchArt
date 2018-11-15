@@ -67,8 +67,8 @@ class VideoFilesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoFileCellIdentifier", for: indexPath)
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "VideoFileCellIdentifier", for: indexPath) as? videoTableViewCell else { return UITableViewCell()}
+        /*
         cell.textLabel?.backgroundColor = UIColor.black
         // Configure the cell...
         // -- edits for UI
@@ -84,6 +84,9 @@ class VideoFilesTableViewController: UITableViewController {
         let cellVideoName = FileManager.default.displayName(atPath: videoPaths[indexPath.row])
         
         cell.textLabel?.text = cellVideoName
+        */
+        
+        cell.configureCell(videoFilePath: videoPaths[indexPath.row])
         
         return cell
     }
@@ -114,9 +117,6 @@ class VideoFilesTableViewController: UITableViewController {
     }
     
     //
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
     
     /*
     // Override to support rearranging the table view.
