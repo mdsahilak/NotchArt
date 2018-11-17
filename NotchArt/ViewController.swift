@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     var selectedVideoPath: String?
     var player: AVPlayer?
-    var layer: AVPlayerLayer!
+    var layer: AVPlayerLayer?
     var selectedVideoGravity = AVLayerVideoGravity.resizeAspect
     
     var videoAsset: AVAsset?
@@ -129,6 +129,7 @@ class ViewController: UIViewController {
         }
         */
         initializeVideoPlayerWithVideo()
+        updatePLayerLayerToUI()
         
         videoAsset = player?.currentItem?.asset
         videoDuration = videoAsset?.duration.seconds
@@ -175,7 +176,7 @@ class ViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         //This part of updating the AV player and player layer is called here, so as to make the player Layer adhere to the mainView's constraints.
-        updatePLayerLayerToUI()
+        //updatePLayerLayerToUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -196,6 +197,7 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         updateUITimer.invalidate()
+        eyeHealthTimer.invalidate()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -276,19 +278,21 @@ class ViewController: UIViewController {
         self.player = AVPlayer(url: videoUrl)
         
         // create a video layer for the player
-        layer = AVPlayerLayer(player: player)
+        //layer = AVPlayerLayer(player: player)
         
         // add the layer to the container view
-        mainView.layer.addSublayer(layer)
+        //mainView.layer.addSublayer(layer)
         
+        self.layer = mainView.layer as? AVPlayerLayer
+        self.layer?.player = self.player
     }
     
     func updatePLayerLayerToUI() {
         // make the layer the same size as the container view
-        layer.frame = mainView.bounds
+        //layer?.frame = mainView.bounds
         
         // make the video fill the layer as much as possible while keeping its aspect size
-        layer.videoGravity = selectedVideoGravity
+        layer?.videoGravity = selectedVideoGravity
         
         // Make the side black bars dissappear in case of portrait mode by updating constraints
         setSideConstraints()
@@ -369,10 +373,10 @@ class ViewController: UIViewController {
     
     @IBAction func videoScreenPiched(_ sender: UIPinchGestureRecognizer) {
         if sender.scale > 1.00 {
-            layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
         } else if sender.scale < 1.00 {
-            layer.videoGravity = AVLayerVideoGravity.resizeAspect
+            layer?.videoGravity = AVLayerVideoGravity.resizeAspect
             selectedVideoGravity = AVLayerVideoGravity.resizeAspect
         } else {
             print("Error@ videoScreenPiched(...) IBAction Method !")
