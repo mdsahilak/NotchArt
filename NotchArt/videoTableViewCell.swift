@@ -37,12 +37,26 @@ class videoTableViewCell: UITableViewCell {
         
         let videoAsset: AVAsset = AVAsset(url: videoFileURL)
         let imageGenerator = AVAssetImageGenerator(asset: videoAsset)
-        
+        /*
         if let previewImage = try? imageGenerator.copyCGImage(at: CMTime(seconds: (videoAsset.duration.seconds / 2), preferredTimescale: 1), actualTime: nil) {
             imageVIew.image = UIImage(cgImage: previewImage)
             
         } else {
             imageVIew.image = UIImage(named: "Jeep")
+        }
+        
+        */
+        let nsval = [NSValue(time: CMTime(seconds: (videoAsset.duration.seconds / 2), preferredTimescale: 1))]
+        imageGenerator.generateCGImagesAsynchronously(forTimes: nsval) { (reqTime, image, actTime, result, error) in
+            if let image = image {
+                DispatchQueue.main.async {
+                    self.imageVIew.image = UIImage(cgImage: image)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.imageVIew.image = UIImage(named: "Jeep")
+                }
+            }
         }
     }
     

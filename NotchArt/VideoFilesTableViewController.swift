@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class VideoFilesTableViewController: UITableViewController {
     
     var videoPaths: [String] = []
+    var videoAssetImages: [UIImage] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +25,26 @@ class VideoFilesTableViewController: UITableViewController {
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
+        //
+        loadVideoAssetImages()
+        //
     }
-    
+ 
     @objc func refresh() {
-        videoPaths.removeAll()
-        loadVideosFromDocumentsDir()
-        tableView.reloadData()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
-            self.tableView.refreshControl?.endRefreshing()
+        let documentsDirChanged = documentDirDidChange()
+        
+        if documentsDirChanged == true {
+            videoPaths.removeAll()
+            videoAssetImages.removeAll()
+            loadVideosFromDocumentsDir()
+            loadVideoAssetImages()
+            tableView.reloadData()
         }
+        self.tableView.refreshControl?.endRefreshing()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+//            self.tableView.refreshControl?.endRefreshing()
+//        }
+        
     }
     
     func loadVideosFromDocumentsDir() {
@@ -47,6 +60,39 @@ class VideoFilesTableViewController: UITableViewController {
         }
     }
     
+    func documentDirDidChange() -> Bool? {
+        var newVideoPaths: [String] = []
+        
+        let documentsDirectoryPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path
+        guard let DocumentDirectoryVideoNames = try? FileManager.default.subpathsOfDirectory(atPath: documentsDirectoryPath)
+            else { return nil }
+        for videoName in DocumentDirectoryVideoNames {
+            let path = documentsDirectoryPath + "/" + videoName
+            newVideoPaths.append(path)
+        }
+        
+        if newVideoPaths != videoPaths {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func loadVideoAssetImages() {
+        for path in videoPaths {
+            let videoURL = URL(fileURLWithPath: path)
+            let videoAsset = AVAsset(url: videoURL)
+            //videosAssets.append(videoAsset)
+            
+            let imageGen = AVAssetImageGenerator(asset: videoAsset)
+            if let cgImage = try? imageGen.copyCGImage(at: CMTime.init(seconds: (videoAsset.duration.seconds / 2), preferredTimescale: CMTimeScale(NSEC_PER_SEC)), actualTime: nil) {
+                let uiImage = UIImage(cgImage: cgImage)
+                videoAssetImages.append(uiImage)
+            } else {
+                videoAssetImages.append(UIImage(named: "Jeep")!)
+            }
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -86,8 +132,15 @@ class VideoFilesTableViewController: UITableViewController {
         cell.textLabel?.text = cellVideoName
         */
         
-        cell.configureCell(videoFilePath: videoPaths[indexPath.row])
+        //cell.configureCell(videoFilePath: videoPaths[indexPath.row])
+        //
+        let videoCellPath = videoPaths[indexPath.row]
+        let videoCellTitle = FileManager.default.displayName(atPath: videoCellPath)
+        let videoPreviewImage = videoAssetImages[indexPath.row]
         
+        cell.titleLabel.text = videoCellTitle
+        cell.imageVIew.image = videoPreviewImage
+        //
         return cell
     }
     

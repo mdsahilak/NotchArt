@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     var selectedVideoPath: String?
     var player: AVPlayer?
     var layer: AVPlayerLayer!
-    var selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
+    var selectedVideoGravity = AVLayerVideoGravity.resizeAspect
     
     var videoAsset: AVAsset?
     var videoDuration: Double?
@@ -107,6 +107,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var dismissButton: UIButton!
     
+    @IBOutlet weak var mainViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var mainViewTrailingConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,6 +165,7 @@ class ViewController: UIViewController {
             }
         }
         // Subtitling -- delete after use!
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -193,6 +196,26 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         updateUITimer.invalidate()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+    
+        if size.width / size.height > 1 {
+            //LandscapeLeft or LandscapeRight
+            mainViewLeadingConstraint.constant = 30.0
+            mainViewTrailingConstraint.constant = 30.0
+            
+            coordinator.animate(alongsideTransition: { (context) in
+                
+                
+            }, completion: nil)
+        } else {
+            //Portrait or UpsideDown
+            mainViewLeadingConstraint.constant = 0.0
+            mainViewTrailingConstraint.constant = 0.0
+        }
+        
     }
     
     
@@ -267,6 +290,8 @@ class ViewController: UIViewController {
         // make the video fill the layer as much as possible while keeping its aspect size
         layer.videoGravity = selectedVideoGravity
         
+        // Make the side black bars dissappear in case of portrait mode by updating constraints
+        setSideConstraints()
     }
     
     
@@ -362,6 +387,19 @@ class ViewController: UIViewController {
         let secs = String(format: "%02d", (seconds % 3600) % 60)
         
         return (hrs, mins, secs)
+    }
+    
+    func setSideConstraints() {
+        let size = view.frame.size
+        
+        if size.width / size.height > 1 {
+            mainViewLeadingConstraint.constant = 30.0
+            mainViewTrailingConstraint.constant = 30.0
+        } else {
+            mainViewLeadingConstraint.constant = 0.0
+            mainViewTrailingConstraint.constant = 0.0
+        }
+        updateViewConstraints()
     }
     
     override func didReceiveMemoryWarning() {
