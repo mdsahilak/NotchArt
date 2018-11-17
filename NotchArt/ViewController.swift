@@ -166,7 +166,10 @@ class ViewController: UIViewController {
             }
         }
         // Subtitling -- delete after use!
-        
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -201,23 +204,9 @@ class ViewController: UIViewController {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-    
-        if size.width / size.height > 1 {
-            //LandscapeLeft or LandscapeRight
-            mainViewLeadingConstraint.constant = 30.0
-            mainViewTrailingConstraint.constant = 30.0
-            
-            coordinator.animate(alongsideTransition: { (context) in
-                
-                
-            }, completion: nil)
-        } else {
-            //Portrait or UpsideDown
-            mainViewLeadingConstraint.constant = 0.0
-            mainViewTrailingConstraint.constant = 0.0
-        }
         
+        super.viewWillTransition(to: size, with: coordinator)
+        setSideConstraints(size: size)
     }
     
     
@@ -295,7 +284,7 @@ class ViewController: UIViewController {
         layer?.videoGravity = selectedVideoGravity
         
         // Make the side black bars dissappear in case of portrait mode by updating constraints
-        setSideConstraints()
+        setSideConstraints(size: view.frame.size)
     }
     
     
@@ -393,13 +382,14 @@ class ViewController: UIViewController {
         return (hrs, mins, secs)
     }
     
-    func setSideConstraints() {
-        let size = view.frame.size
+    func setSideConstraints(size: CGSize) {
         
         if size.width / size.height > 1 {
+            //LandscapeLeft or LandscapeRight
             mainViewLeadingConstraint.constant = 30.0
             mainViewTrailingConstraint.constant = 30.0
         } else {
+            //Portrati or UpsideDown
             mainViewLeadingConstraint.constant = 0.0
             mainViewTrailingConstraint.constant = 0.0
         }

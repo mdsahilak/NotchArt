@@ -144,13 +144,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNT-7P-58r" customClass="videoPlayerView" customModule="NotchArt" customModuleProvider="target">
-                                <rect key="frame" x="30" y="44" width="315" height="768"/>
+                                <rect key="frame" x="31" y="44" width="313" height="767"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="uTi-3s-CAb">
-                                        <rect key="frame" x="7" y="669" width="301" height="66"/>
+                                        <rect key="frame" x="7" y="668" width="299" height="66"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Fr0-D9-1h9">
-                                                <rect key="frame" x="0.0" y="0.0" width="301" height="33"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="299" height="33"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aD-Su-A7i">
                                                         <rect key="frame" x="0.0" y="0.0" width="35.666666666666664" height="33"/>
@@ -162,7 +162,7 @@
                                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bha-b0-LHf">
-                                                        <rect key="frame" x="135.33333333333334" y="0.0" width="33" height="33"/>
+                                                        <rect key="frame" x="134.33333333333334" y="0.0" width="33" height="33"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="33" id="ewS-Xk-VYq"/>
@@ -186,7 +186,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljo-Nf-LrK">
-                                                        <rect key="frame" x="268" y="0.0" width="33" height="33"/>
+                                                        <rect key="frame" x="266" y="0.0" width="33" height="33"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -197,7 +197,7 @@
                                                 </subviews>
                                             </stackView>
                                             <slider opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tMK-cm-B0z">
-                                                <rect key="frame" x="-2" y="36" width="305" height="31"/>
+                                                <rect key="frame" x="-2" y="36" width="303" height="31"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="minimumTrackTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -244,7 +244,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ray-U1-zjW">
-                                <rect key="frame" x="0.0" y="25" width="30" height="33"/>
+                                <rect key="frame" x="0.0" y="51" width="30" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="🔇">
@@ -256,7 +256,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbk-Pz-mkt">
-                                <rect key="frame" x="345" y="16" width="30" height="48"/>
+                                <rect key="frame" x="345" y="44" width="30" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="titleShadowOffset" width="0.5" height="0.5"/>
@@ -269,14 +269,14 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="Tbk-Pz-mkt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="16" id="Fzg-oB-MeU"/>
+                            <constraint firstItem="Tbk-Pz-mkt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Fzg-oB-MeU"/>
                             <constraint firstItem="Ray-U1-zjW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Nj0-Cl-gW4"/>
                             <constraint firstItem="QNT-7P-58r" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SZd-3d-bkE"/>
-                            <constraint firstAttribute="bottom" secondItem="QNT-7P-58r" secondAttribute="bottom" id="UTa-0q-AFP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QNT-7P-58r" secondAttribute="bottom" constant="-33" id="UTa-0q-AFP"/>
                             <constraint firstAttribute="trailing" secondItem="Tbk-Pz-mkt" secondAttribute="trailing" id="cWp-ch-nJp"/>
-                            <constraint firstAttribute="trailing" secondItem="QNT-7P-58r" secondAttribute="trailing" constant="30" id="hcO-Ru-I5A"/>
-                            <constraint firstItem="Ray-U1-zjW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="25" id="tzU-Jn-Y9g"/>
-                            <constraint firstItem="QNT-7P-58r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="x8r-Y1-BMS"/>
+                            <constraint firstAttribute="trailing" secondItem="QNT-7P-58r" secondAttribute="trailing" constant="31" id="hcO-Ru-I5A"/>
+                            <constraint firstItem="Ray-U1-zjW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="7" id="tzU-Jn-Y9g"/>
+                            <constraint firstItem="QNT-7P-58r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="31" id="x8r-Y1-BMS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
