@@ -163,6 +163,7 @@ class VideoFilesTableViewController: UITableViewController {
             let deletedVideosPath = videoPaths[indexPath.row]
             if let _ = try? FileManager.default.removeItem(atPath: deletedVideosPath){
                 videoPaths.remove(at: indexPath.row)
+                videoAssetImages.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
             
