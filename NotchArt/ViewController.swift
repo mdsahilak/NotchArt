@@ -325,7 +325,7 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func videoSliderValueChanged(_ sender: UISlider) {
-        player?.seek(to: CMTime(seconds: Double(sender.value), preferredTimescale: 1))
+        player?.seek(to: CMTime(seconds: Double(sender.value), preferredTimescale: CMTimeScale(NSEC_PER_SEC)))
     }
     @IBAction func releasedSliderMethods(_ sender: UISlider) {
         if userWasPlaying == true{
