@@ -308,32 +308,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="iLv-BD-zE6" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="Ou5-ys-cjV">
+                <tapGestureRecognizer delaysTouchesEnded="NO" id="Ou5-ys-cjV">
                     <connections>
                         <action selector="videoScreenTapped:" destination="BYZ-38-t0r" id="PBS-qt-REe"/>
                     </connections>
                 </tapGestureRecognizer>
-                <pinchGestureRecognizer id="Nul-CN-oYR">
+                <pinchGestureRecognizer delaysTouchesEnded="NO" id="Nul-CN-oYR">
                     <connections>
                         <action selector="videoScreenPiched:" destination="BYZ-38-t0r" id="5oa-q6-ivM"/>
                     </connections>
                 </pinchGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="030-XU-sWP">
+                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="right" id="030-XU-sWP">
                     <connections>
                         <action selector="swipedRight:" destination="BYZ-38-t0r" id="e5Q-JC-hHC"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="left" id="SOZ-A1-fVR">
+                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="left" id="SOZ-A1-fVR">
                     <connections>
                         <action selector="swipedLeft:" destination="BYZ-38-t0r" id="pGg-8h-NkI"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="up" id="J5f-WT-2Ns">
+                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="up" id="J5f-WT-2Ns">
                     <connections>
                         <action selector="swipedUp:" destination="BYZ-38-t0r" id="fYN-hJ-8Of"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="down" id="X2O-N9-VzK">
+                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="down" id="X2O-N9-VzK">
                     <connections>
                         <action selector="swipedDown:" destination="BYZ-38-t0r" id="VbG-27-Kgt"/>
                     </connections>

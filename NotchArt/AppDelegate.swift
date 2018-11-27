@@ -20,6 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.tintColor = UIColor.red
         window?.backgroundColor = UIColor.black
         
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playback, mode: .default, policy: .default, options: .defaultToSpeaker)
+        } catch  {
+            print("Setting audio session category failed.")
+        }
+        
         return true
     }
 

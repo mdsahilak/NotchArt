@@ -335,17 +335,63 @@ class ViewController: UIViewController {
     
     
     @IBAction func videoScreenTapped(_ sender: UITapGestureRecognizer) {
-            showVideoControls = !showVideoControls
+        showVideoControls = !showVideoControls
+        mainView.transform = CGAffineTransform.identity
+        player?.rate = 1.0
     }
     
+    //
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        let touch = touches.first!
+        //print(touch.force)
+        if touch.force > CGFloat(5.0) {
+            print("hello")
+        }
+        mainView.transform = CGAffineTransform.identity
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        
+        let touch = touches.first!
+        print(touch.force)
+        let touchLocation = touch.location(in: mainView)
+        
+        print("1-\(touchLocation)")
+        
+        if touchLocation.x > (mainView.bounds.width / 2) {
+            print("Right Half")
+        } else if touchLocation.x < (mainView.bounds.width / 2) {
+            print("Left Half")
+        }
+        
+        if touch.force > CGFloat(3){
+            mainView.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+            if touchLocation.x > (mainView.bounds.width / 2) {
+                player?.rate = 2
+            } else if touchLocation.x < (mainView.bounds.width / 2) {
+                player?.rate = -2
+            }
+        }
+        
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        mainView.transform = CGAffineTransform.identity
+        player?.rate = 1.0
+    }
+    //
     
     @IBAction func swipedRight(_ sender: UISwipeGestureRecognizer) {
-        player?.seek(to: CMTime(seconds: (player?.currentTime().seconds)! + 10.0, preferredTimescale: 1))
+        player?.seek(to: CMTime(seconds: (player?.currentTime().seconds)! + 10.0, preferredTimescale: CMTimeScale(NSEC_PER_SEC)))
+    
     }
     
     
     @IBAction func swipedLeft(_ sender: UISwipeGestureRecognizer) {
-        player?.seek(to: CMTime(seconds: (player?.currentTime().seconds)! - 10.0, preferredTimescale: 1))
+        player?.seek(to: CMTime(seconds: (player?.currentTime().seconds)! - 10.0, preferredTimescale: CMTimeScale(NSEC_PER_SEC)))
     }
     
     
