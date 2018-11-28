@@ -135,7 +135,9 @@ class VideoFilesTableViewController: UITableViewController {
         //cell.configureCell(videoFilePath: videoPaths[indexPath.row])
         //
         let videoCellPath = videoPaths[indexPath.row]
-        let videoCellTitle = FileManager.default.displayName(atPath: videoCellPath)
+        let videoCellURL = URL(fileURLWithPath: videoCellPath)
+        //videoCellURL.deletePathExtension()
+        let videoCellTitle = FileManager.default.displayName(atPath: videoCellURL.deletingPathExtension().path)
         let videoPreviewImage = videoAssetImages[indexPath.row]
         
         cell.titleLabel.text = videoCellTitle

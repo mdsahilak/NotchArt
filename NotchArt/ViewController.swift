@@ -166,6 +166,7 @@ class ViewController: UIViewController {
             }
         }
         // Subtitling -- delete after use!
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -386,7 +387,6 @@ class ViewController: UIViewController {
     
     @IBAction func swipedRight(_ sender: UISwipeGestureRecognizer) {
         player?.seek(to: CMTime(seconds: (player?.currentTime().seconds)! + 10.0, preferredTimescale: CMTimeScale(NSEC_PER_SEC)))
-    
     }
     
     
@@ -397,6 +397,8 @@ class ViewController: UIViewController {
     
     @IBAction func swipedUp(_ sender: UISwipeGestureRecognizer) {
         //UIScreen.main.brightness += 0.1
+        
+        
     }
     
     

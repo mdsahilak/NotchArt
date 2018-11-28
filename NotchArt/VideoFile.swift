@@ -7,8 +7,40 @@
 //
 
 import Foundation
+import UIKit
 import AVFoundation
 
-struct VideoFile {
-    //var title: String
+class NotchArtFile {
+    
+    var title: String?
+    var path: String
+    var url: URL
+    var asset: AVAsset
+    var previewImage: UIImage?
+    var totalDuration: Double
+    var currentTime: CMTime?
+    var defaultPreviewImageTime: CMTime
+    
+    var isPlayable: Bool {
+        return asset.isPlayable
+    }
+
+    init(url: URL) {
+        self.url = url
+        
+        self.path = url.path
+        self.title = FileManager.default.displayName(atPath: path)
+        self.asset = AVAsset(url: url)
+        self.totalDuration = asset.duration.seconds
+        self.defaultPreviewImageTime = CMTime(seconds: totalDuration / 2, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+    }
+    
+    func loadPreviewImage() {
+        let imageGenerator = AVAssetImageGenerator(asset: asset)
+        
+        if let generatedImage = try? imageGenerator.copyCGImage(at: currentTime ?? defaultPreviewImageTime, actualTime: nil) {
+            self.previewImage = UIImage(cgImage: generatedImage)
+        }
+    }
+    
 }
