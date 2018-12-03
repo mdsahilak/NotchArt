@@ -18,7 +18,7 @@ class videoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        imageVIew.layer.borderWidth = 7.0
+        imageVIew.layer.borderWidth = 7
         imageVIew.layer.borderColor = UIColor.black.cgColor
         
         imageVIew.layer.cornerRadius = 7

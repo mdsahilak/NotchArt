@@ -13,6 +13,8 @@ class VideoFilesTableViewController: UITableViewController {
     
     var videoPaths: [String] = []
     var videoAssetImages: [UIImage] = []
+    
+    var notchArtFiles: [NotchArtFile] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +59,11 @@ class VideoFilesTableViewController: UITableViewController {
         for videoName in DocumentDirectoryVideoNames {
             let path = documentsDirectoryPath + "/" + videoName
             videoPaths.append(path)
+            
+            //
+            let notchArtFile = NotchArtFile(url: URL(fileURLWithPath: path))
+            notchArtFiles.append(notchArtFile)
+            //
         }
     }
     
@@ -89,7 +96,7 @@ class VideoFilesTableViewController: UITableViewController {
                 let uiImage = UIImage(cgImage: cgImage)
                 videoAssetImages.append(uiImage)
             } else {
-                videoAssetImages.append(UIImage(named: "Jeep")!)
+                videoAssetImages.append(UIImage())
             }
         }
     }
@@ -139,9 +146,9 @@ class VideoFilesTableViewController: UITableViewController {
         //videoCellURL.deletePathExtension()
         let videoCellTitle = FileManager.default.displayName(atPath: videoCellURL.deletingPathExtension().path)
         let videoPreviewImage = videoAssetImages[indexPath.row]
-        
-        cell.titleLabel.text = videoCellTitle
-        cell.imageVIew.image = videoPreviewImage
+        //
+        cell.titleLabel.text = notchArtFiles[indexPath.row].title
+        cell.imageVIew.image = notchArtFiles[indexPath.row].previewImage
         //
         return cell
     }
@@ -203,6 +210,7 @@ class VideoFilesTableViewController: UITableViewController {
         if segue.identifier == "DismissToListView" {
             if let sourceVC = segue.source as? ViewController {
                 sourceVC.pauseVideo()
+                
             }
         }
     }
@@ -212,6 +220,9 @@ class VideoFilesTableViewController: UITableViewController {
             if let destinationVC = segue.destination as? ViewController {
                 let index = tableView.indexPathForSelectedRow!.row
                 destinationVC.selectedVideoPath = videoPaths[index]
+                destinationVC.selectedNotchArtFile = notchArtFiles[index]
+                destinationVC.selectedFileIndexPath = tableView.indexPathForSelectedRow!
+                destinationVC.notchArtFiles = self.notchArtFiles
             }
         }
     }

@@ -31,7 +31,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="mZf-qC-Mv8">
                                             <rect key="frame" x="13" y="13" width="349" height="267.66666666666669"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="jon-flobrant-230583-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="Jdj-uR-bh9">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Jdj-uR-bh9">
                                                     <rect key="frame" x="0.0" y="0.0" width="349" height="232.66666666666666"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Jdj-uR-bh9" secondAttribute="height" multiplier="60:40" id="vaJ-Iy-bO2"/>
@@ -39,7 +39,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3n-VX-dlt">
                                                     <rect key="frame" x="0.0" y="243.66666666666669" width="349" height="24"/>
-                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                                     <color key="textColor" red="0.89887410066348428" green="0.91675857710587316" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -67,18 +67,7 @@
                             <outlet property="delegate" destination="ek3-js-fDA" id="Xm3-0G-LXc"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Currently Playing item" id="1mP-qo-eeS">
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="OK1-JC-fen"/>
-                        <barButtonItem systemItem="play" id="MCd-6X-wvv">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
-                        <barButtonItem systemItem="stop" id="3rQ-sm-b2t">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Videos" id="glc-Vq-7C5">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="1g5-EL-O3z"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="B5J-E7-Fa0">
@@ -214,8 +203,8 @@
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="minimumTrackTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="maximumTrackTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <action selector="releasedSliderMethods:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="Dfd-2F-DH7"/>
                                                     <action selector="releasedSliderMethods:" destination="BYZ-38-t0r" eventType="touchCancel" id="Wyf-Rw-xIB"/>
@@ -230,6 +219,60 @@
                                             <constraint firstAttribute="trailing" secondItem="Fr0-D9-1h9" secondAttribute="trailing" id="O8p-wv-nAs"/>
                                         </constraints>
                                     </stackView>
+                                    <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwD-jn-ZcF">
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="50"/>
+                                        <color key="backgroundColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="JnC-WL-i3r"/>
+                                        </constraints>
+                                    </view>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kUf-jn-25H">
+                                        <rect key="frame" x="11" y="672" width="291" height="62"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="kUf-jn-25H" secondAttribute="height" multiplier="728:155" id="4Wz-By-oE0"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QTc-WH-TFI">
+                                            <size key="itemSize" width="219" height="122"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="upnextCell" id="P94-4q-oB7" customClass="upnextCollectionViewCell" customModule="NotchArt" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="-30" width="219" height="122"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="219" height="122"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Mn5-Qf-chZ">
+                                                            <rect key="frame" x="9" y="0.0" width="280" height="161"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ek4-a9-70i">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="219" height="146"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="Ek4-a9-70i" secondAttribute="height" multiplier="60:40" id="ql9-qd-dVC"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1b-AZ-GqS">
+                                                                    <rect key="frame" x="0.0" y="150" width="219" height="20.333333333333343"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </view>
+                                                <connections>
+                                                    <outlet property="imageView" destination="Ek4-a9-70i" id="GgY-OQ-xCL"/>
+                                                    <outlet property="titleLabel" destination="X1b-AZ-GqS" id="Wqk-4f-IoD"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
                                     <imageView hidden="YES" autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jon-flobrant-230583-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="Uhe-fV-ckC">
                                         <rect key="frame" x="0.0" y="0.0" width="776" height="375"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -238,8 +281,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="kUf-jn-25H" firstAttribute="leading" secondItem="QNT-7P-58r" secondAttribute="leading" constant="11" id="7Bp-jg-62w"/>
+                                    <constraint firstAttribute="trailing" secondItem="MwD-jn-ZcF" secondAttribute="trailing" id="CNb-iF-Wc2"/>
+                                    <constraint firstAttribute="bottom" secondItem="kUf-jn-25H" secondAttribute="bottom" constant="33" id="Eg4-4d-VOK"/>
                                     <constraint firstItem="uTi-3s-CAb" firstAttribute="leading" secondItem="QNT-7P-58r" secondAttribute="leading" constant="7" id="K6r-gE-ts6"/>
+                                    <constraint firstItem="MwD-jn-ZcF" firstAttribute="leading" secondItem="QNT-7P-58r" secondAttribute="leading" id="MYo-P4-Uey"/>
+                                    <constraint firstAttribute="trailing" secondItem="kUf-jn-25H" secondAttribute="trailing" constant="11" id="eOw-kX-o7F"/>
                                     <constraint firstAttribute="bottom" secondItem="uTi-3s-CAb" secondAttribute="bottom" constant="33" id="fz5-OF-f8B"/>
+                                    <constraint firstItem="MwD-jn-ZcF" firstAttribute="top" secondItem="QNT-7P-58r" secondAttribute="top" id="lEi-9e-IyT"/>
                                     <constraint firstAttribute="trailing" secondItem="uTi-3s-CAb" secondAttribute="trailing" constant="7" id="tM3-e6-9sO"/>
                                 </constraints>
                                 <variation key="default">
@@ -254,6 +303,7 @@
                                     <outletCollection property="gestureRecognizers" destination="SOZ-A1-fVR" appends="YES" id="2rz-cp-pjU"/>
                                     <outletCollection property="gestureRecognizers" destination="J5f-WT-2Ns" appends="YES" id="1wh-63-6W8"/>
                                     <outletCollection property="gestureRecognizers" destination="X2O-N9-VzK" appends="YES" id="bkx-Sq-gSM"/>
+                                    <outletCollection property="gestureRecognizers" destination="9z1-94-sgs" appends="YES" id="Xq8-4V-RM4"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ray-U1-zjW">
@@ -303,12 +353,19 @@
                         <outlet property="playPauseButton" destination="Bha-b0-LHf" id="qGH-G8-Wdk"/>
                         <outlet property="timeElapsedLabel" destination="1aD-Su-A7i" id="EJk-ih-rBC"/>
                         <outlet property="timeRemainingLabel" destination="Ljo-Nf-LrK" id="Wyc-IV-lhS"/>
+                        <outlet property="upnextCollectionView" destination="kUf-jn-25H" id="FgN-AL-RGk"/>
                         <outlet property="videoLengthSlider" destination="tMK-cm-B0z" id="BdV-6g-STZ"/>
+                        <outlet property="volumeSliderContainer" destination="MwD-jn-ZcF" id="gj8-wQ-BcC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="iLv-BD-zE6" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer delaysTouchesEnded="NO" id="Ou5-ys-cjV">
+                <tapGestureRecognizer delaysTouchesEnded="NO" numberOfTapsRequired="2" id="9z1-94-sgs">
+                    <connections>
+                        <action selector="videoScreendDoubleTapped:" destination="BYZ-38-t0r" id="GH4-Ji-XCI"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer cancelsTouchesInView="NO" delaysTouchesEnded="NO" id="Ou5-ys-cjV">
                     <connections>
                         <action selector="videoScreenTapped:" destination="BYZ-38-t0r" id="PBS-qt-REe"/>
                     </connections>
@@ -318,22 +375,22 @@
                         <action selector="videoScreenPiched:" destination="BYZ-38-t0r" id="5oa-q6-ivM"/>
                     </connections>
                 </pinchGestureRecognizer>
-                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="right" id="030-XU-sWP">
+                <swipeGestureRecognizer cancelsTouchesInView="NO" delaysTouchesEnded="NO" direction="right" id="030-XU-sWP">
                     <connections>
                         <action selector="swipedRight:" destination="BYZ-38-t0r" id="e5Q-JC-hHC"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="left" id="SOZ-A1-fVR">
+                <swipeGestureRecognizer cancelsTouchesInView="NO" delaysTouchesEnded="NO" direction="left" id="SOZ-A1-fVR">
                     <connections>
                         <action selector="swipedLeft:" destination="BYZ-38-t0r" id="pGg-8h-NkI"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="up" id="J5f-WT-2Ns">
+                <swipeGestureRecognizer cancelsTouchesInView="NO" delaysTouchesEnded="NO" direction="up" id="J5f-WT-2Ns">
                     <connections>
                         <action selector="swipedUp:" destination="BYZ-38-t0r" id="fYN-hJ-8Of"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="down" id="X2O-N9-VzK">
+                <swipeGestureRecognizer cancelsTouchesInView="NO" delaysTouchesEnded="NO" direction="down" id="X2O-N9-VzK">
                     <connections>
                         <action selector="swipedDown:" destination="BYZ-38-t0r" id="VbG-27-Kgt"/>
                     </connections>

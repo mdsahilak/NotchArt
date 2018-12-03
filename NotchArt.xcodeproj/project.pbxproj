@@ -11,6 +11,8 @@
 		E92A396B219CB352005F2C6C /* videoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A396A219CB352005F2C6C /* videoTableViewCell.swift */; };
 		E92A396E219DD4D9005F2C6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E92A396C219DD4D9005F2C6C /* Main.storyboard */; };
 		E92A397121A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A397021A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift */; };
+		E94D345021B3EDB100857647 /* ViewController+Collectionview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94D344F21B3EDB100857647 /* ViewController+Collectionview.swift */; };
+		E94D345221B3F02100857647 /* upnextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94D345121B3F02100857647 /* upnextCollectionViewCell.swift */; };
 		E96A940E212D309300F62060 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A940D212D309300F62060 /* AppDelegate.swift */; };
 		E96A9410212D309300F62060 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A940F212D309300F62060 /* ViewController.swift */; };
 		E96A9415212D309600F62060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E96A9414212D309600F62060 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 		E92A396A219CB352005F2C6C /* videoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = videoTableViewCell.swift; sourceTree = "<group>"; };
 		E92A396D219DD4D9005F2C6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E92A397021A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIview+AVPlayerLayer.swift"; sourceTree = "<group>"; };
+		E94D344F21B3EDB100857647 /* ViewController+Collectionview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Collectionview.swift"; sourceTree = "<group>"; };
+		E94D345121B3F02100857647 /* upnextCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = upnextCollectionViewCell.swift; sourceTree = "<group>"; };
 		E96A940A212D309300F62060 /* NotchArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotchArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96A940D212D309300F62060 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E96A940F212D309300F62060 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 				E9EE5DDD214851DA0067C67E /* VideoFilesTableViewController.swift */,
 				E92A396A219CB352005F2C6C /* videoTableViewCell.swift */,
 				E96A940F212D309300F62060 /* ViewController.swift */,
+				E94D344F21B3EDB100857647 /* ViewController+Collectionview.swift */,
+				E94D345121B3F02100857647 /* upnextCollectionViewCell.swift */,
 				E96A9414212D309600F62060 /* Assets.xcassets */,
 				E96A9416212D309600F62060 /* LaunchScreen.storyboard */,
 				E9EE5DDF214C01DE0067C67E /* VideoPlayerViewController.swift */,
@@ -160,12 +166,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9EE5DDC214850E20067C67E /* VideoFile.swift in Sources */,
+				E94D345021B3EDB100857647 /* ViewController+Collectionview.swift in Sources */,
 				E96A9410212D309300F62060 /* ViewController.swift in Sources */,
 				E9EE5DE0214C01DE0067C67E /* VideoPlayerViewController.swift in Sources */,
 				E96A940E212D309300F62060 /* AppDelegate.swift in Sources */,
 				E92A396B219CB352005F2C6C /* videoTableViewCell.swift in Sources */,
 				E9205FBB214E5FD6007132F9 /* UIDevice+ModelName.swift in Sources */,
 				E9EE5DDE214851DA0067C67E /* VideoFilesTableViewController.swift in Sources */,
+				E94D345221B3F02100857647 /* upnextCollectionViewCell.swift in Sources */,
 				E92A397121A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

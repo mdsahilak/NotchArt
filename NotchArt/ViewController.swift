@@ -9,10 +9,14 @@
 import Foundation
 import UIKit
 import AVFoundation
-import AudioToolbox
+import MediaPlayer
 import LocalAuthentication
 
 class ViewController: UIViewController {
+    
+    var selectedNotchArtFile: NotchArtFile!
+    var selectedFileIndexPath: IndexPath!
+    var notchArtFiles: [NotchArtFile]!
     
     var selectedVideoPath: String?
     var player: AVPlayer?
@@ -85,18 +89,25 @@ class ViewController: UIViewController {
     var isMuted: Bool = false{
         didSet {
             if isMuted == true {
-                player?.isMuted = true
-                muteButton.setTitle("🔈", for: .normal)
+                //player?.isMuted = true
+                //muteButton.setTitle("🔈", for: .normal)
+                self.volumeSliderView.alpha = 1
+                self.volumeSliderView.isUserInteractionEnabled = true
             } else {
-                player?.isMuted = false
-                muteButton.setTitle("🔇", for: .normal)
+                //player?.isMuted = false
+                //muteButton.setTitle("🔇", for: .normal)
+                self.volumeSliderView.alpha = 0
+                self.volumeSliderView.isUserInteractionEnabled = false
             }
         }
     }
     
+    var volumeSliderView: MPVolumeView!
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var upnextCollectionView: UICollectionView!
     
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var videoLengthSlider: UISlider!
@@ -107,8 +118,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var dismissButton: UIButton!
     
+    @IBOutlet weak var volumeSliderContainer: UIView!
+    
     @IBOutlet weak var mainViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainViewTrailingConstraint: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -167,6 +181,24 @@ class ViewController: UIViewController {
         }
         // Subtitling -- delete after use!
         
+        // Media Player Volume
+        volumeSliderContainer.backgroundColor = UIColor.clear
+        volumeSliderView = MPVolumeView(frame: CGRect(x: mainView.frame.minX + 17, y: mainView.frame.minY + 17, width: mainView.bounds.width, height: 50.0))
+        volumeSliderView.frame.origin = CGPoint(x: muteButton.frame.maxX, y: mainView.frame.minY)
+        mainView.addSubview(volumeSliderView)
+        self.volumeSliderView.alpha = 0
+        self.volumeSliderView.isUserInteractionEnabled = false
+        // Media Player Volume
+        
+        // Upnext Collectoin view
+        upnextCollectionView.dataSource = self
+        upnextCollectionView.delegate = self
+        
+        upnextCollectionView.alpha = 0
+        upnextCollectionView.isUserInteractionEnabled = false
+        //upnextCVbottomConstraint.constant = -(upnextCollectionView.frame.height + videoLengthSlider.frame.height + 7)
+        //
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -175,6 +207,12 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         updateUITimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateVideoControlsUI), userInfo: nil, repeats: true)
+        
+        if let currentTime = selectedNotchArtFile.currentTime{
+            player?.seek(to: currentTime)
+            updateVideoControlsUI()
+            videoLengthSlider.setValue(Float(currentTime.seconds), animated: true)
+        }
         
     }
     
@@ -206,8 +244,8 @@ class ViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
-        super.viewWillTransition(to: size, with: coordinator)
         setSideConstraints(size: size)
+        super.viewWillTransition(to: size, with: coordinator)
     }
     
     
@@ -265,7 +303,7 @@ class ViewController: UIViewController {
         let videoUrl = URL(fileURLWithPath: unwrappedVideoPath)
         
         // initialize the video player with the url
-        self.player = AVPlayer(url: videoUrl)
+        self.player = AVPlayer(url: selectedNotchArtFile.url)
         
         // create a video layer for the player
         //layer = AVPlayerLayer(player: player)
@@ -293,14 +331,13 @@ class ViewController: UIViewController {
     
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
         if self.isPlaying {
-            player?.pause()
-            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+            pauseVideo()
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
         } else {
-            player?.play()
-            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+            playVideo()
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
         }
         
-        self.isPlaying = !self.isPlaying
         /*
         UIView.animate(withDuration: 0.2, animations: {
             self.playPauseButton.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -318,6 +355,7 @@ class ViewController: UIViewController {
     
     var userWasPlaying: Bool?
     @IBAction func touchedDownOnSlider(_ sender: UISlider) {
+        
         if isPlaying == true{
             pauseVideo()
             userWasPlaying = true
@@ -338,8 +376,19 @@ class ViewController: UIViewController {
     @IBAction func videoScreenTapped(_ sender: UITapGestureRecognizer) {
         showVideoControls = !showVideoControls
         mainView.transform = CGAffineTransform.identity
-        player?.rate = 1.0
+        //player?.rate = 1.0
+        
     }
+    
+    @IBAction func videoScreendDoubleTapped(_ sender: UITapGestureRecognizer) {
+        if isPlaying {
+            pauseVideo()
+        } else {
+            playVideo()
+        }
+        
+    }
+    
     
     //
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -350,38 +399,73 @@ class ViewController: UIViewController {
             print("hello")
         }
         mainView.transform = CGAffineTransform.identity
+        //player?.rate = 1.0
+    }
+    
+    var isPeek: Bool = true
+    var isIn3DtouchMode: Bool = false {
+        didSet {
+            if isIn3DtouchMode{
+                showVideoControls = true
+                playPauseButton.isHidden = true
+                muteButton.isHidden = true
+                dismissButton.isHidden = true
+                videoLengthSlider.thumbTintColor = UIColor.clear
+            } else {
+                showVideoControls = false
+                playPauseButton.isHidden = false
+                muteButton.isHidden = false
+                dismissButton.isHidden = false
+                //videoLengthSlider.thumbTintColor = UIColor.white
+            }
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event)
         
         let touch = touches.first!
-        print(touch.force)
+        //print(touch.force)
         let touchLocation = touch.location(in: mainView)
         
-        print("1-\(touchLocation)")
-        
-        if touchLocation.x > (mainView.bounds.width / 2) {
-            print("Right Half")
-        } else if touchLocation.x < (mainView.bounds.width / 2) {
-            print("Left Half")
-        }
-        
-        if touch.force > CGFloat(3){
+        let touchPercentage = (touch.force * 100) / touch.maximumPossibleForce
+        if touchPercentage > CGFloat(66){
             mainView.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
-            if touchLocation.x > (mainView.bounds.width / 2) {
-                player?.rate = 2
-            } else if touchLocation.x < (mainView.bounds.width / 2) {
-                player?.rate = -2
+            if isPeek {
+                UISelectionFeedbackGenerator().selectionChanged()
+                isPeek = false
+                isIn3DtouchMode = true
             }
+            
         }
+        
+        if isIn3DtouchMode {
+            let previosLocation = touch.previousLocation(in: mainView)
+            pauseVideo()
+            let diff = Double(touchLocation.x - previosLocation.x) * 7
+            print(touchLocation)
+            print(previosLocation)
+            let currentDuration = player?.currentTime().seconds
+            
+            player?.seek(to: CMTime(seconds: (currentDuration! + diff), preferredTimescale: CMTimeScale(NSEC_PER_SEC)))
+            videoLengthSlider.setValue(Float(currentDuration!), animated: true)
+            
+        }
+        
         
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         mainView.transform = CGAffineTransform.identity
-        player?.rate = 1.0
+//        if isIn3DtouchMode {
+//            player?.rate = 1.0
+//        }
+        if isIn3DtouchMode == true {
+            playVideo()
+            isIn3DtouchMode = false
+        }
+        isPeek = true
     }
     //
     
@@ -394,21 +478,54 @@ class ViewController: UIViewController {
         player?.seek(to: CMTime(seconds: (player?.currentTime().seconds)! - 10.0, preferredTimescale: CMTimeScale(NSEC_PER_SEC)))
     }
     
+    var upnextCVisVisible: Bool = false {
+        didSet {
+            if upnextCVisVisible {
+                //playPauseButton.isHidden = true
+                //(timeElapsedLabel.isHidden, timeRemainingLabel.isHidden) = (true, true)
+                videoLengthSlider.thumbTintColor = UIColor.clear
+            } else {
+                //playPauseButton.isHidden = false
+                //(timeElapsedLabel.isHidden, timeRemainingLabel.isHidden) = (false, false)
+                //videoLengthSlider.thumbTintColor = UIColor.white
+            }
+        }
+    }
     
     @IBAction func swipedUp(_ sender: UISwipeGestureRecognizer) {
         //UIScreen.main.brightness += 0.1
-        
+        UIView.animate(withDuration: 0.7) {
+            //self.upnextCollectionView.isHidden = false
+            //self.showVideoControls = false
+            self.upnextCollectionView.alpha = 1
+            self.upnextCollectionView.isUserInteractionEnabled = true
+        }
+        upnextCVisVisible = true
         
     }
     
     
     @IBAction func swipedDown(_ sender: UISwipeGestureRecognizer) {
         //UIScreen.main.brightness -= 0.1
-        performSegue(withIdentifier: "DismissToListView", sender: nil)
+        
+        if upnextCVisVisible {
+            UIView.animate(withDuration: 0.7) {
+                //self.upnextCollectionView.isHidden = true
+                self.upnextCollectionView.alpha = 0
+                self.upnextCollectionView.isUserInteractionEnabled = false
+            }
+            upnextCVisVisible = false
+        } else {
+            selectedNotchArtFile.currentTime = player?.currentTime()
+            selectedNotchArtFile.loadPreviewImage()
+            performSegue(withIdentifier: "DismissToListView", sender: nil)
+        }
+        
     }
     
     
     @IBAction func videoScreenPiched(_ sender: UIPinchGestureRecognizer) {
+        
         if sender.scale > 1.00 {
             layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
@@ -418,6 +535,7 @@ class ViewController: UIViewController {
         } else {
             print("Error@ videoScreenPiched(...) IBAction Method !")
         }
+        
     }
  
     // --- Player Controls Implementation Over! --- //
@@ -436,10 +554,20 @@ class ViewController: UIViewController {
             //LandscapeLeft or LandscapeRight
             mainViewLeadingConstraint.constant = 30.0
             mainViewTrailingConstraint.constant = 30.0
+            
+            layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
+            
+            //upnextCollectionView.isHidden = false
         } else {
             //Portrati or UpsideDown
             mainViewLeadingConstraint.constant = 0.0
             mainViewTrailingConstraint.constant = 0.0
+            
+            layer?.videoGravity = AVLayerVideoGravity.resizeAspect
+            selectedVideoGravity = AVLayerVideoGravity.resizeAspect
+            
+            //upnextCollectionView.isHidden = true
         }
         updateViewConstraints()
     }
@@ -447,6 +575,14 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DismissToListView" {
+            if let destinationVC = segue.destination as? VideoFilesTableViewController {
+                destinationVC.tableView.reloadRows(at: [selectedFileIndexPath], with: .none)
+            }
+        }
     }
 
 }

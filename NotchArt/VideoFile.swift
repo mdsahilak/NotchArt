@@ -29,10 +29,11 @@ class NotchArtFile {
         self.url = url
         
         self.path = url.path
-        self.title = FileManager.default.displayName(atPath: path)
+        self.title = FileManager.default.displayName(atPath: url.deletingPathExtension().path)
         self.asset = AVAsset(url: url)
         self.totalDuration = asset.duration.seconds
         self.defaultPreviewImageTime = CMTime(seconds: totalDuration / 2, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        loadPreviewImage()
     }
     
     func loadPreviewImage() {
@@ -40,6 +41,8 @@ class NotchArtFile {
         
         if let generatedImage = try? imageGenerator.copyCGImage(at: currentTime ?? defaultPreviewImageTime, actualTime: nil) {
             self.previewImage = UIImage(cgImage: generatedImage)
+        } else {
+            self.previewImage = UIImage(named: "error")
         }
     }
     

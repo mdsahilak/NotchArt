@@ -15,7 +15,7 @@ import AVFoundation
 
 class videoPlayerView: UIView {
 
-    override class var layerClass: AnyClass {
+    override static var layerClass: AnyClass {
         return AVPlayerLayer.self
     }
     
