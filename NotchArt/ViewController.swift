@@ -194,6 +194,7 @@ class ViewController: UIViewController {
         upnextCollectionView.dataSource = self
         upnextCollectionView.delegate = self
         
+        //upnextCollectionView.transform = CGAffineTransform(translationX: upnextCollectionView.frame.origin.x, y: mainView.frame.maxY)
         upnextCollectionView.alpha = 0
         upnextCollectionView.isUserInteractionEnabled = false
         //upnextCVbottomConstraint.constant = -(upnextCollectionView.frame.height + videoLengthSlider.frame.height + 7)
@@ -458,16 +459,14 @@ class ViewController: UIViewController {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         mainView.transform = CGAffineTransform.identity
-//        if isIn3DtouchMode {
-//            player?.rate = 1.0
-//        }
+
         if isIn3DtouchMode == true {
             playVideo()
             isIn3DtouchMode = false
         }
         isPeek = true
     }
-    //
+    
     
     @IBAction func swipedRight(_ sender: UISwipeGestureRecognizer) {
         player?.seek(to: CMTime(seconds: (player?.currentTime().seconds)! + 10.0, preferredTimescale: CMTimeScale(NSEC_PER_SEC)))
@@ -494,11 +493,10 @@ class ViewController: UIViewController {
     
     @IBAction func swipedUp(_ sender: UISwipeGestureRecognizer) {
         //UIScreen.main.brightness += 0.1
-        UIView.animate(withDuration: 0.7) {
-            //self.upnextCollectionView.isHidden = false
-            //self.showVideoControls = false
+        UIView.animate(withDuration: 0.5) {
             self.upnextCollectionView.alpha = 1
             self.upnextCollectionView.isUserInteractionEnabled = true
+            self.upnextCollectionView.transform = CGAffineTransform.identity
         }
         upnextCVisVisible = true
         
@@ -509,10 +507,10 @@ class ViewController: UIViewController {
         //UIScreen.main.brightness -= 0.1
         
         if upnextCVisVisible {
-            UIView.animate(withDuration: 0.7) {
-                //self.upnextCollectionView.isHidden = true
-                self.upnextCollectionView.alpha = 0
-                self.upnextCollectionView.isUserInteractionEnabled = false
+            UIView.animate(withDuration: 0.5) {
+                //self.upnextCollectionView.alpha = 0
+                //self.upnextCollectionView.isUserInteractionEnabled = false
+                self.upnextCollectionView.transform = CGAffineTransform(translationX: self.upnextCollectionView.frame.origin.x, y: self.view.frame.maxY)
             }
             upnextCVisVisible = false
         } else {
@@ -529,6 +527,7 @@ class ViewController: UIViewController {
         if sender.scale > 1.00 {
             layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
+            
         } else if sender.scale < 1.00 {
             layer?.videoGravity = AVLayerVideoGravity.resizeAspect
             selectedVideoGravity = AVLayerVideoGravity.resizeAspect

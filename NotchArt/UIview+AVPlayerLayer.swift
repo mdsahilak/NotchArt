@@ -11,7 +11,7 @@ import AVFoundation
 // Made a custom view (subclass of uiview) to set as the identity of mainView in interfaceBuilder.
 //This is as per solution on stackoverflow for the problem of layer lagging when the user  changes orientation.
 //site: https://stackoverflow.com/questions/10126200/avplayer-layer-inside-a-view-does-not-resize-when-uiview-frame-changes
-// Solution works well. Checked.
+// Solution works well. Checked. so Don't touch it.
 
 class videoPlayerView: UIView {
 

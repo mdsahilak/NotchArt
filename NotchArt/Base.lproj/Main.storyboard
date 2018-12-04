@@ -230,7 +230,7 @@
                                         <rect key="frame" x="11" y="199" width="728" height="155"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="kUf-jn-25H" secondAttribute="height" multiplier="728:155" id="4Wz-By-oE0"/>
+                                            <constraint firstAttribute="height" constant="155" id="T9j-bw-xk5"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QTc-WH-TFI">
                                             <size key="itemSize" width="219" height="122"/>
