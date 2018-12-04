@@ -12,7 +12,6 @@ import AVFoundation
 class VideoFilesTableViewController: UITableViewController {
     
     var videoPaths: [String] = []
-    var videoAssetImages: [UIImage] = []
     
     var notchArtFiles: [NotchArtFile] = []
 
@@ -27,9 +26,6 @@ class VideoFilesTableViewController: UITableViewController {
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
-        //
-        loadVideoAssetImages()
-        //
     }
  
     @objc func refresh() {
@@ -37,15 +33,11 @@ class VideoFilesTableViewController: UITableViewController {
         
         if documentsDirChanged == true {
             videoPaths.removeAll()
-            videoAssetImages.removeAll()
+            notchArtFiles.removeAll()
             loadVideosFromDocumentsDir()
-            loadVideoAssetImages()
             tableView.reloadData()
         }
         self.tableView.refreshControl?.endRefreshing()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
-//            self.tableView.refreshControl?.endRefreshing()
-//        }
         
     }
     
@@ -84,22 +76,6 @@ class VideoFilesTableViewController: UITableViewController {
             return false
         }
     }
-    
-    func loadVideoAssetImages() {
-        for path in videoPaths {
-            let videoURL = URL(fileURLWithPath: path)
-            let videoAsset = AVAsset(url: videoURL)
-            //videosAssets.append(videoAsset)
-            
-            let imageGen = AVAssetImageGenerator(asset: videoAsset)
-            if let cgImage = try? imageGen.copyCGImage(at: CMTime.init(seconds: (videoAsset.duration.seconds / 2), preferredTimescale: CMTimeScale(NSEC_PER_SEC)), actualTime: nil) {
-                let uiImage = UIImage(cgImage: cgImage)
-                videoAssetImages.append(uiImage)
-            } else {
-                videoAssetImages.append(UIImage())
-            }
-        }
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -115,41 +91,16 @@ class VideoFilesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return videoPaths.count
+        return notchArtFiles.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "VideoFileCellIdentifier", for: indexPath) as? videoTableViewCell else { return UITableViewCell()}
-        /*
-        cell.textLabel?.backgroundColor = UIColor.black
-        // Configure the cell...
-        // -- edits for UI
         
-        cell.textLabel?.layer.borderWidth = 3.0
-        cell.textLabel?.layer.borderColor = UIColor.white.cgColor
-        
-        cell.textLabel?.layer.cornerRadius = 17.5
-        cell.textLabel?.clipsToBounds = true
-        cell.textLabel?.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
-        
-        // --- edits for UI
-        let cellVideoName = FileManager.default.displayName(atPath: videoPaths[indexPath.row])
-        
-        cell.textLabel?.text = cellVideoName
-        */
-        
-        //cell.configureCell(videoFilePath: videoPaths[indexPath.row])
-        //
-        let videoCellPath = videoPaths[indexPath.row]
-        let videoCellURL = URL(fileURLWithPath: videoCellPath)
-        //videoCellURL.deletePathExtension()
-        let videoCellTitle = FileManager.default.displayName(atPath: videoCellURL.deletingPathExtension().path)
-        let videoPreviewImage = videoAssetImages[indexPath.row]
-        //
         cell.titleLabel.text = notchArtFiles[indexPath.row].title
         cell.imageVIew.image = notchArtFiles[indexPath.row].previewImage
-        //
+        
         return cell
     }
     
@@ -169,10 +120,9 @@ class VideoFilesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            let deletedVideosPath = videoPaths[indexPath.row]
-            if let _ = try? FileManager.default.removeItem(atPath: deletedVideosPath){
-                videoPaths.remove(at: indexPath.row)
-                videoAssetImages.remove(at: indexPath.row)
+            let deletedVideosPath = notchArtFiles[indexPath.row]
+            if let _ = try? FileManager.default.removeItem(atPath: deletedVideosPath.path){
+                notchArtFiles.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
             

@@ -183,14 +183,14 @@ class ViewController: UIViewController {
         
         // Media Player Volume
         volumeSliderContainer.backgroundColor = UIColor.clear
-        volumeSliderView = MPVolumeView(frame: CGRect(x: mainView.frame.minX + 17, y: mainView.frame.minY + 17, width: mainView.bounds.width, height: 50.0))
+        volumeSliderView = MPVolumeView(frame: CGRect(x: mainView.frame.minX + 17, y: mainView.frame.minY + 17, width: 250, height: 50.0))
         volumeSliderView.frame.origin = CGPoint(x: muteButton.frame.maxX, y: mainView.frame.minY)
         mainView.addSubview(volumeSliderView)
         self.volumeSliderView.alpha = 0
         self.volumeSliderView.isUserInteractionEnabled = false
         // Media Player Volume
         
-        // Upnext Collectoin view
+        // Upnext Collection view
         upnextCollectionView.dataSource = self
         upnextCollectionView.delegate = self
         
