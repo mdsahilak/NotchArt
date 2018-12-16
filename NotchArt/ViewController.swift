@@ -128,20 +128,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //To make the player container view corners curved on true depth available devices.
-        /*
-        if faceIDAvailable == true{
-            mainView.layer.cornerRadius = 11
-            mainView.clipsToBounds = true
-            mainView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
-            print("Device has faceID")
-            imageView.layer.cornerRadius = 44.0
-            imageView.clipsToBounds = true
-            
-        } else {
-            print("Device does not have faceID")
-        }
-        */
         initializeVideoPlayerWithVideo()
         updatePLayerLayerToUI()
         
@@ -185,6 +171,7 @@ class ViewController: UIViewController {
         volumeSliderContainer.backgroundColor = UIColor.clear
         volumeSliderView = MPVolumeView(frame: CGRect(x: mainView.frame.minX + 17, y: mainView.frame.minY + 17, width: 250, height: 50.0))
         volumeSliderView.frame.origin = CGPoint(x: muteButton.frame.maxX, y: mainView.frame.minY)
+        volumeSliderView.isExclusiveTouch = true
         mainView.addSubview(volumeSliderView)
         self.volumeSliderView.alpha = 0
         self.volumeSliderView.isUserInteractionEnabled = false
@@ -282,52 +269,6 @@ class ViewController: UIViewController {
         }
     }
     
-    func pauseVideo() {
-        player?.pause()
-        isPlaying = false
-    }
-    
-    func playVideo() {
-        player?.play()
-        isPlaying = true
-    }
-    
-    func initializeVideoPlayerWithVideo() {
-        
-        // get the path string for the video from assets
-        // this is already available in the variable selectedVideoPath as it was passed from the previous view controller.
-        
-        guard let unwrappedVideoPath = selectedVideoPath else { print("Error! could not unwrap the given path!")
-            return }
-        
-        // convert the path string to a url
-        let videoUrl = URL(fileURLWithPath: unwrappedVideoPath)
-        
-        // initialize the video player with the url
-        self.player = AVPlayer(url: selectedNotchArtFile.url)
-        
-        // create a video layer for the player
-        //layer = AVPlayerLayer(player: player)
-        
-        // add the layer to the container view
-        //mainView.layer.addSublayer(layer)
-        
-        self.layer = mainView.layer as? AVPlayerLayer
-        self.layer?.player = self.player
-    }
-    
-    func updatePLayerLayerToUI() {
-        // make the layer the same size as the container view
-        //layer?.frame = mainView.bounds
-        
-        // make the video fill the layer as much as possible while keeping its aspect size
-        layer?.videoGravity = selectedVideoGravity
-        
-        // Make the side black bars dissappear in case of portrait mode by updating constraints
-        setSideConstraints(size: view.frame.size)
-    }
-    
-    
     // ---------- Implementations For Player Controls. --------- //
     
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
@@ -339,13 +280,6 @@ class ViewController: UIViewController {
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         }
         
-        /*
-        UIView.animate(withDuration: 0.2, animations: {
-            self.playPauseButton.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        }) { (true) in
-            self.playPauseButton.transform = CGAffineTransform.identity
-        }
-        */
     }
     
     
@@ -377,7 +311,6 @@ class ViewController: UIViewController {
     @IBAction func videoScreenTapped(_ sender: UITapGestureRecognizer) {
         showVideoControls = !showVideoControls
         mainView.transform = CGAffineTransform.identity
-        //player?.rate = 1.0
         
     }
     
@@ -390,6 +323,16 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func videoScreenLongPressed(_ sender: UILongPressGestureRecognizer) {
+        
+        mainView.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+        if isPeek {
+            UISelectionFeedbackGenerator().selectionChanged()
+            isPeek = false
+            isIn3DtouchMode = true
+        }
+        
+    }
     
     //
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -480,19 +423,14 @@ class ViewController: UIViewController {
     var upnextCVisVisible: Bool = false {
         didSet {
             if upnextCVisVisible {
-                //playPauseButton.isHidden = true
-                //(timeElapsedLabel.isHidden, timeRemainingLabel.isHidden) = (true, true)
                 videoLengthSlider.thumbTintColor = UIColor.clear
             } else {
-                //playPauseButton.isHidden = false
-                //(timeElapsedLabel.isHidden, timeRemainingLabel.isHidden) = (false, false)
-                //videoLengthSlider.thumbTintColor = UIColor.white
+                //
             }
         }
     }
     
     @IBAction func swipedUp(_ sender: UISwipeGestureRecognizer) {
-        //UIScreen.main.brightness += 0.1
         UIView.animate(withDuration: 0.5) {
             self.upnextCollectionView.alpha = 1
             self.upnextCollectionView.isUserInteractionEnabled = true
@@ -508,8 +446,7 @@ class ViewController: UIViewController {
         
         if upnextCVisVisible {
             UIView.animate(withDuration: 0.5) {
-                //self.upnextCollectionView.alpha = 0
-                //self.upnextCollectionView.isUserInteractionEnabled = false
+                
                 self.upnextCollectionView.transform = CGAffineTransform(translationX: self.upnextCollectionView.frame.origin.x, y: self.view.frame.maxY)
             }
             upnextCVisVisible = false
@@ -539,38 +476,6 @@ class ViewController: UIViewController {
  
     // --- Player Controls Implementation Over! --- //
     
-    func secondsToHoursMinutesSecondsString (seconds : Int) -> (String, String, String) {
-        let hrs = String(seconds / 3600)
-        let mins = String(format: "%02d", (seconds % 3600) / 60)
-        let secs = String(format: "%02d", (seconds % 3600) % 60)
-        
-        return (hrs, mins, secs)
-    }
-    
-    func setSideConstraints(size: CGSize) {
-        
-        if size.width / size.height > 1 {
-            //LandscapeLeft or LandscapeRight
-            mainViewLeadingConstraint.constant = 30.0
-            mainViewTrailingConstraint.constant = 30.0
-            
-            layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
-            
-            //upnextCollectionView.isHidden = false
-        } else {
-            //Portrati or UpsideDown
-            mainViewLeadingConstraint.constant = 0.0
-            mainViewTrailingConstraint.constant = 0.0
-            
-            layer?.videoGravity = AVLayerVideoGravity.resizeAspect
-            selectedVideoGravity = AVLayerVideoGravity.resizeAspect
-            
-            //upnextCollectionView.isHidden = true
-        }
-        updateViewConstraints()
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -584,5 +489,6 @@ class ViewController: UIViewController {
         }
     }
 
+    
 }
 

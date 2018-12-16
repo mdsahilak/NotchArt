@@ -67,13 +67,7 @@
                             <outlet property="delegate" destination="ek3-js-fDA" id="Xm3-0G-LXc"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem systemItem="compose" id="c5f-hh-ZpL"/>
-                        <barButtonItem systemItem="flexibleSpace" id="tla-GF-LjS"/>
-                        <barButtonItem systemItem="organize" id="yUO-LF-nEy"/>
-                        <barButtonItem systemItem="flexibleSpace" id="W8M-Kk-iP8"/>
-                        <barButtonItem systemItem="search" id="hGH-uW-A3V"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Videos" id="glc-Vq-7C5">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="1g5-EL-O3z"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="B5J-E7-Fa0">
@@ -176,7 +170,7 @@
                                                             <constraint firstAttribute="width" constant="33" id="ewS-Xk-VYq"/>
                                                             <constraint firstAttribute="height" constant="33" id="tRn-xf-Rp9"/>
                                                         </constraints>
-                                                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <size key="titleShadowOffset" width="1" height="1"/>
                                                         <state key="normal" image="play">
                                                             <attributedString key="attributedTitle">
@@ -208,7 +202,7 @@
                                                 <rect key="frame" x="-2" y="36" width="303" height="31"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="minimumTrackTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
@@ -310,10 +304,12 @@
                                     <outletCollection property="gestureRecognizers" destination="J5f-WT-2Ns" appends="YES" id="1wh-63-6W8"/>
                                     <outletCollection property="gestureRecognizers" destination="X2O-N9-VzK" appends="YES" id="bkx-Sq-gSM"/>
                                     <outletCollection property="gestureRecognizers" destination="9z1-94-sgs" appends="YES" id="Xq8-4V-RM4"/>
+                                    <outletCollection property="gestureRecognizers" destination="Bzq-Q0-o4a" appends="YES" id="Awq-jZ-dUJ"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ray-U1-zjW">
                                 <rect key="frame" x="0.0" y="51" width="30" height="33"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="🔇">
@@ -327,7 +323,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbk-Pz-mkt">
                                 <rect key="frame" x="345" y="44" width="30" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="titleShadowOffset" width="0.5" height="0.5"/>
                                 <state key="normal" title="X"/>
                                 <connections>
@@ -401,6 +397,11 @@
                         <action selector="swipedDown:" destination="BYZ-38-t0r" id="VbG-27-Kgt"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <pongPressGestureRecognizer cancelsTouchesInView="NO" delaysTouchesEnded="NO" allowableMovement="10" minimumPressDuration="0.5" id="Bzq-Q0-o4a">
+                    <connections>
+                        <action selector="videoScreenLongPressed:" destination="BYZ-38-t0r" id="4Cb-V6-MAc"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="774.38423645320199" y="-706.39999999999998"/>
         </scene>
