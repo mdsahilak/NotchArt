@@ -350,13 +350,33 @@ class ViewController: UIViewController {
     var isIn3DtouchMode: Bool = false {
         didSet {
             if isIn3DtouchMode{
-                showVideoControls = true
+                //showVideoControls = true
+                //
+                self.videoLengthSlider.alpha = 1
+                self.videoLengthSlider.isUserInteractionEnabled = true
+                self.timeElapsedLabel.alpha = 1
+                self.timeRemainingLabel.alpha = 1
+                self.muteButton.alpha = 1
+                self.playPauseButton.alpha = 1
+                self.playPauseButton.isUserInteractionEnabled = true
+                self.dismissButton.alpha = 1
+                //
                 playPauseButton.isHidden = true
                 muteButton.isHidden = true
                 dismissButton.isHidden = true
-                videoLengthSlider.thumbTintColor = UIColor.clear
+                //videoLengthSlider.thumbTintColor = UIColor.clear
             } else {
-                showVideoControls = false
+                //showVideoControls = false
+                //
+                self.videoLengthSlider.alpha = 0
+                self.videoLengthSlider.isUserInteractionEnabled = false
+                self.timeElapsedLabel.alpha = 0
+                self.timeRemainingLabel.alpha = 0
+                self.muteButton.alpha = 0
+                self.playPauseButton.alpha = 0
+                self.playPauseButton.isUserInteractionEnabled = false
+                self.dismissButton.alpha = 0
+                //
                 playPauseButton.isHidden = false
                 muteButton.isHidden = false
                 dismissButton.isHidden = false
@@ -379,6 +399,14 @@ class ViewController: UIViewController {
                 UISelectionFeedbackGenerator().selectionChanged()
                 isPeek = false
                 isIn3DtouchMode = true
+                // extras
+                if isPlaying == true{
+                    pauseVideo()
+                    userWasPlaying = true
+                } else {
+                    userWasPlaying = false
+                }
+                // /extras
             }
             
         }
@@ -404,7 +432,11 @@ class ViewController: UIViewController {
         mainView.transform = CGAffineTransform.identity
 
         if isIn3DtouchMode == true {
-            playVideo()
+            // play video if user was playing before else leave it in pause only
+            if userWasPlaying == true{
+                playVideo()
+            }
+            // reset the 3D touch mode identifier variable.
             isIn3DtouchMode = false
         }
         isPeek = true
