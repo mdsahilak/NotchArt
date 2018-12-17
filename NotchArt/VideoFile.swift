@@ -42,7 +42,7 @@ class NotchArtFile {
         if let generatedImage = try? imageGenerator.copyCGImage(at: currentTime ?? defaultPreviewImageTime, actualTime: nil) {
             self.previewImage = UIImage(cgImage: generatedImage)
         } else {
-            self.previewImage = UIImage(named: "error")
+            self.previewImage = UIImage(named: "Loading")
         }
     }
     
