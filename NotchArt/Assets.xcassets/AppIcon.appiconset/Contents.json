@@ -75,23 +75,25 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "icon_ipad-76.png",
+      "filename" : "redCircle-2.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "ico_ipad-152.png",
+      "filename" : "redCircle-3.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "83.5x83.5",
+      "idiom" : "ipad",
+      "filename" : "redCircle-1.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "ios-marketing",
       "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "redCircle.png",
       "scale" : "1x"
     }
   ],

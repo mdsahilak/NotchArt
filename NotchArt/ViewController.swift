@@ -232,8 +232,8 @@ class ViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
-        setSideConstraints(size: size)
         super.viewWillTransition(to: size, with: coordinator)
+        setSideConstraints(size: size)
     }
     
     
@@ -490,16 +490,51 @@ class ViewController: UIViewController {
         
     }
     
+    var currentAspectType: CustomAspectType = .original
     
     @IBAction func videoScreenPiched(_ sender: UIPinchGestureRecognizer) {
+        guard sender.state == .recognized else {return}
         
         if sender.scale > 1.00 {
-            layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
+            //layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            //selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
+            
+            switch currentAspectType {
+            case .original:
+                layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+                selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
+                currentAspectType = .nonNotchFill
+            case .nonNotchFill:
+                self.mainViewLeadingConstraint.constant = 0.0
+                self.mainViewTrailingConstraint.constant = 0.0
+                UIView.animate(withDuration: 0.2) {
+                    self.view.layoutIfNeeded()
+                }
+                currentAspectType = .fullFill
+            case .fullFill:
+                print("Pushing the limits forward huh?")
+            }
             
         } else if sender.scale < 1.00 {
-            layer?.videoGravity = AVLayerVideoGravity.resizeAspect
-            selectedVideoGravity = AVLayerVideoGravity.resizeAspect
+            //layer?.videoGravity = AVLayerVideoGravity.resizeAspect
+            //selectedVideoGravity = AVLayerVideoGravity.resizeAspect
+            
+            switch currentAspectType {
+            case .fullFill:
+                self.mainViewLeadingConstraint.constant = 30.0
+                self.mainViewTrailingConstraint.constant = 30.0
+                UIView.animate(withDuration: 0.2) {
+                    self.view.layoutIfNeeded()
+                }
+                currentAspectType = .nonNotchFill
+            case .nonNotchFill:
+                layer?.videoGravity = AVLayerVideoGravity.resizeAspect
+                selectedVideoGravity = AVLayerVideoGravity.resizeAspect
+                currentAspectType = .original
+            case .original:
+                print("Pushing the limits backwards huh?")
+            }
+            
         } else {
             print("Error@ videoScreenPiched(...) IBAction Method !")
         }

@@ -27,17 +27,21 @@ extension ViewController {
             mainViewLeadingConstraint.constant = 30.0
             mainViewTrailingConstraint.constant = 30.0
             
-            layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            } // This was added here to mitigate the problem of lightning like issue in the video layer while transitioning to landscape and changing videogravity together.
             selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
+            currentAspectType = .nonNotchFill
             
             //upnextCollectionView.isHidden = false
         } else {
-            //Portrati or UpsideDown
+            //Portrait or UpsideDown
             mainViewLeadingConstraint.constant = 0.0
             mainViewTrailingConstraint.constant = 0.0
             
             layer?.videoGravity = AVLayerVideoGravity.resizeAspect
             selectedVideoGravity = AVLayerVideoGravity.resizeAspect
+            currentAspectType = .original
             
             //upnextCollectionView.isHidden = true
         }
