@@ -330,6 +330,14 @@ class ViewController: UIViewController {
             UISelectionFeedbackGenerator().selectionChanged()
             isPeek = false
             isIn3DtouchMode = true
+            // extras
+            if isPlaying == true{
+                pauseVideo()
+                userWasPlaying = true
+            } else {
+                userWasPlaying = false
+            }
+            // /extras
         }
         
     }
@@ -368,14 +376,18 @@ class ViewController: UIViewController {
             } else {
                 //showVideoControls = false
                 //
-                self.videoLengthSlider.alpha = 0
-                self.videoLengthSlider.isUserInteractionEnabled = false
-                self.timeElapsedLabel.alpha = 0
-                self.timeRemainingLabel.alpha = 0
-                self.muteButton.alpha = 0
-                self.playPauseButton.alpha = 0
-                self.playPauseButton.isUserInteractionEnabled = false
-                self.dismissButton.alpha = 0
+                if showVideoControls == false {
+                    self.videoLengthSlider.alpha = 0
+                    self.videoLengthSlider.isUserInteractionEnabled = false
+                    self.timeElapsedLabel.alpha = 0
+                    self.timeRemainingLabel.alpha = 0
+                    self.muteButton.alpha = 0
+                    self.playPauseButton.alpha = 0
+                    self.playPauseButton.isUserInteractionEnabled = false
+                    self.dismissButton.alpha = 0
+                } else {
+                    showVideoControls = true
+                }
                 //
                 playPauseButton.isHidden = false
                 muteButton.isHidden = false
@@ -494,6 +506,8 @@ class ViewController: UIViewController {
     
     @IBAction func videoScreenPiched(_ sender: UIPinchGestureRecognizer) {
         guard sender.state == .recognized else {return}
+        
+        guard UIDevice.current.orientation == .landscapeRight || UIDevice.current.orientation == .landscapeLeft else {return}
         
         if sender.scale > 1.00 {
             //layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill

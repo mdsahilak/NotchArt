@@ -349,6 +349,12 @@
                             <constraint firstItem="QNT-7P-58r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="31" id="x8r-Y1-BMS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Ray-U1-zjW"/>
+                                <exclude reference="Tbk-Pz-mkt"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="dismissButton" destination="Tbk-Pz-mkt" id="afP-t0-Gv9"/>
