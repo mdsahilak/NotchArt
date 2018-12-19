@@ -11,6 +11,9 @@ import UIKit
 import AVFoundation
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    // Data Source
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.notchArtFiles.count
     }
@@ -24,6 +27,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         return cell
         
     }
+    
+    // Delegate Methods
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let playerItem = AVPlayerItem(asset: notchArtFiles[indexPath.row].asset)

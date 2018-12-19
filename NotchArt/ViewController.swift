@@ -340,7 +340,7 @@ class ViewController: UIViewController {
         let touch = touches.first!
         //print(touch.force)
         if touch.force > CGFloat(5.0) {
-            print("hello")
+            print("Entered 3D touch Mode")
         }
         mainView.transform = CGAffineTransform.identity
         //player?.rate = 1.0
@@ -415,8 +415,8 @@ class ViewController: UIViewController {
             let previosLocation = touch.previousLocation(in: mainView)
             pauseVideo()
             let diff = Double(touchLocation.x - previosLocation.x) * 7
-            print(touchLocation)
-            print(previosLocation)
+            //print(touchLocation)
+            //print(previosLocation)
             let currentDuration = player?.currentTime().seconds
             
             player?.seek(to: CMTime(seconds: (currentDuration! + diff), preferredTimescale: CMTimeScale(NSEC_PER_SEC)))
