@@ -426,7 +426,10 @@ class ViewController: UIViewController {
         if isIn3DtouchMode {
             let previosLocation = touch.previousLocation(in: mainView)
             pauseVideo()
-            let diff = Double(touchLocation.x - previosLocation.x) * 7
+            var scrubPower = videoDuration! / 500
+            if scrubPower < 3.5 { scrubPower = 3.5 }
+            print(scrubPower)
+            let diff = Double(touchLocation.x - previosLocation.x) * scrubPower
             //print(touchLocation)
             //print(previosLocation)
             let currentDuration = player?.currentTime().seconds
