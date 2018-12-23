@@ -424,14 +424,30 @@ class ViewController: UIViewController {
         }
         
         if isIn3DtouchMode {
+            
             let previosLocation = touch.previousLocation(in: mainView)
             pauseVideo()
+            // Below video scrub power has been set. it is set as a multiplier to the change in touch positions as the difference value alone is too small to cause smooth scrubbing on video, so the multiplier profounds the change so that the minute change in the cgfloat value causes a noticeable difference as scrubbing.
             var scrubPower = videoDuration! / 500
             if scrubPower < 3.5 { scrubPower = 3.5 }
-            print(scrubPower)
+            
+            /* Testing - For variable scrubbing power based on Y coordinate of the touch
+            let yAxisPercentage = (touchLocation.y * 100) / mainView.frame.maxY
+            if yAxisPercentage <= 25 {
+                scrubPower = 4
+            } else if yAxisPercentage <= 50 {
+                scrubPower = 7
+            } else if yAxisPercentage <= 75 {
+                scrubPower = 13
+            } else {
+                print("Full Force")
+            }
+            */
+            
             let diff = Double(touchLocation.x - previosLocation.x) * scrubPower
             //print(touchLocation)
             //print(previosLocation)
+            //print(touchLocation.x - previosLocation.x)
             let currentDuration = player?.currentTime().seconds
             
             player?.seek(to: CMTime(seconds: (currentDuration! + diff), preferredTimescale: CMTimeScale(NSEC_PER_SEC)))
