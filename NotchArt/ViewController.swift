@@ -392,7 +392,7 @@ class ViewController: UIViewController {
                 playPauseButton.isHidden = false
                 muteButton.isHidden = false
                 dismissButton.isHidden = false
-                //videoLengthSlider.thumbTintColor = UIColor.white
+                //videoLengthSlider.thumbTintColor = UIColor.clear
             }
         }
     }
@@ -582,11 +582,15 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DismissToListView" {
-            if let destinationVC = segue.destination as? VideoFilesTableViewController {
-                destinationVC.tableView.reloadRows(at: [selectedFileIndexPath], with: .none)
-            }
+        if let destinationVC = segue.destination as? VideoFilesTableViewController {
+            destinationVC.tableView.reloadRows(at: [selectedFileIndexPath], with: .none)
         }
+        //
+        else if let destionationVC = segue.destination as? VideoFilesCollectionViewController {
+            destionationVC.collectionView.reloadItems(at: [selectedFileIndexPath])
+        }
+        //
+
     }
 
     

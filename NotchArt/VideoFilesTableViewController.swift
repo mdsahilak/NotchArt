@@ -25,9 +25,8 @@ class VideoFilesTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        
     }
- 
+    
     @objc func refresh() {
         let documentsDirChanged = documentDirDidChange()
         
@@ -123,6 +122,7 @@ class VideoFilesTableViewController: UITableViewController {
             let deletedVideosPath = notchArtFiles[indexPath.row]
             if let _ = try? FileManager.default.removeItem(atPath: deletedVideosPath.path){
                 notchArtFiles.remove(at: indexPath.row)
+                videoPaths.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
             
@@ -157,11 +157,8 @@ class VideoFilesTableViewController: UITableViewController {
     */
     
     @IBAction func backToListViewSegue(segue: UIStoryboardSegue) {
-        if segue.identifier == "DismissToListView" {
-            if let sourceVC = segue.source as? ViewController {
-                sourceVC.pauseVideo()
-                
-            }
+        if let sourceVC = segue.source as? ViewController {
+            sourceVC.pauseVideo()
         }
     }
     

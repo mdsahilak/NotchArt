@@ -19,6 +19,8 @@
 		E96A9418212D309600F62060 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96A9416212D309600F62060 /* LaunchScreen.storyboard */; };
 		E99EEE2021C5B17D00F721A6 /* ViewController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99EEE1F21C5B17D00F721A6 /* ViewController++.swift */; };
 		E99EEE2221C5B1EB00F721A6 /* ViewController+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99EEE2121C5B1EB00F721A6 /* ViewController+Misc.swift */; };
+		E9DE0E2521D16F4300E57BB2 /* VideoFileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DE0E2421D16F4300E57BB2 /* VideoFileCollectionViewCell.swift */; };
+		E9DE0E2721D16F6000E57BB2 /* VideoFilesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DE0E2621D16F6000E57BB2 /* VideoFilesCollectionViewController.swift */; };
 		E9E01B6521C9689A00234D13 /* AspectTypesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E01B6421C9689A00234D13 /* AspectTypesEnum.swift */; };
 		E9EE5DDC214850E20067C67E /* VideoFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE5DDB214850E20067C67E /* VideoFile.swift */; };
 		E9EE5DDE214851DA0067C67E /* VideoFilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE5DDD214851DA0067C67E /* VideoFilesTableViewController.swift */; };
@@ -39,6 +41,8 @@
 		E96A9419212D309600F62060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E99EEE1F21C5B17D00F721A6 /* ViewController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController++.swift"; sourceTree = "<group>"; };
 		E99EEE2121C5B1EB00F721A6 /* ViewController+Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Misc.swift"; sourceTree = "<group>"; };
+		E9DE0E2421D16F4300E57BB2 /* VideoFileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFileCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9DE0E2621D16F6000E57BB2 /* VideoFilesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFilesCollectionViewController.swift; sourceTree = "<group>"; };
 		E9E01B6421C9689A00234D13 /* AspectTypesEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectTypesEnum.swift; sourceTree = "<group>"; };
 		E9EE5DDB214850E20067C67E /* VideoFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFile.swift; sourceTree = "<group>"; };
 		E9EE5DDD214851DA0067C67E /* VideoFilesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFilesTableViewController.swift; sourceTree = "<group>"; };
@@ -79,9 +83,11 @@
 				E9205FBA214E5FD6007132F9 /* UIDevice+ModelName.swift */,
 				E92A397021A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift */,
 				E9E01B6421C9689A00234D13 /* AspectTypesEnum.swift */,
-				E92A396C219DD4D9005F2C6C /* Main.storyboard */,
-				E9EE5DDD214851DA0067C67E /* VideoFilesTableViewController.swift */,
 				E92A396A219CB352005F2C6C /* videoTableViewCell.swift */,
+				E9DE0E2421D16F4300E57BB2 /* VideoFileCollectionViewCell.swift */,
+				E92A396C219DD4D9005F2C6C /* Main.storyboard */,
+				E9DE0E2621D16F6000E57BB2 /* VideoFilesCollectionViewController.swift */,
+				E9EE5DDD214851DA0067C67E /* VideoFilesTableViewController.swift */,
 				E96A940F212D309300F62060 /* ViewController.swift */,
 				E99EEE1F21C5B17D00F721A6 /* ViewController++.swift */,
 				E99EEE2121C5B1EB00F721A6 /* ViewController+Misc.swift */,
@@ -173,9 +179,11 @@
 			files = (
 				E9EE5DDC214850E20067C67E /* VideoFile.swift in Sources */,
 				E94D345021B3EDB100857647 /* ViewController+Collectionview.swift in Sources */,
+				E9DE0E2721D16F6000E57BB2 /* VideoFilesCollectionViewController.swift in Sources */,
 				E96A9410212D309300F62060 /* ViewController.swift in Sources */,
 				E96A940E212D309300F62060 /* AppDelegate.swift in Sources */,
 				E99EEE2221C5B1EB00F721A6 /* ViewController+Misc.swift in Sources */,
+				E9DE0E2521D16F4300E57BB2 /* VideoFileCollectionViewCell.swift in Sources */,
 				E99EEE2021C5B17D00F721A6 /* ViewController++.swift in Sources */,
 				E92A396B219CB352005F2C6C /* videoTableViewCell.swift in Sources */,
 				E9205FBB214E5FD6007132F9 /* UIDevice+ModelName.swift in Sources */,

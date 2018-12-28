@@ -9,6 +9,8 @@
 		<dict>
 			<key>CFBundleTypeIconFiles</key>
 			<array/>
+			<key>CFBundleTypeName</key>
+			<string></string>
 			<key>LSItemContentTypes</key>
 			<array/>
 		</dict>
@@ -80,5 +82,20 @@
 	<true/>
 	<key>UIUserInterfaceStyle</key>
 	<string></string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeDescription</key>
+			<string></string>
+			<key>UTTypeIconFiles</key>
+			<array/>
+			<key>UTTypeIdentifier</key>
+			<string></string>
+		</dict>
+	</array>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict/>
+	</array>
 </dict>
 </plist>
