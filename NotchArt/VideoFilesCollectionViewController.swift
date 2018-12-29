@@ -107,7 +107,7 @@ class VideoFilesCollectionViewController: UICollectionViewController {
         if isInEditMode {
             sender.title = "Done"
         }else {
-            sender.title = "Select"
+            sender.title = "Edit"
         }
         unColorItems()
     }

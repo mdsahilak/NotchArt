@@ -544,7 +544,8 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="ee0-s6-ZKa"/>
-                        <barButtonItem title="Select" id="7xz-AE-iU8">
+                        <barButtonItem title="Edit" id="7xz-AE-iU8">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="editButtonTapped:" destination="p7b-70-kj8" id="bSr-o6-FYj"/>
                             </connections>
