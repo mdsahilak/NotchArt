@@ -134,8 +134,9 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To add videos for playback please sync videos through iTunes by connecting your device to your computer              -MDAK" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENH-d7-h8c">
-                                <rect key="frame" x="33" y="140" width="309" height="589"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENH-d7-h8c">
+                                <rect key="frame" x="7" y="16" width="361" height="697"/>
+                                <string key="text">To add videos for playback please sync videos through iTunes by connecting your device to your computer.                                -MDAK</string>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -143,10 +144,10 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                         </subviews>
                         <color key="backgroundColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="XAj-Wg-V3y" firstAttribute="bottom" secondItem="ENH-d7-h8c" secondAttribute="bottom" id="2nF-2R-KxG"/>
-                            <constraint firstAttribute="trailing" secondItem="ENH-d7-h8c" secondAttribute="trailing" constant="33" id="9ns-kk-weI"/>
-                            <constraint firstItem="ENH-d7-h8c" firstAttribute="leading" secondItem="qK0-jB-bz7" secondAttribute="leading" constant="33" id="Qaj-Ah-0jv"/>
-                            <constraint firstItem="ENH-d7-h8c" firstAttribute="top" secondItem="XAj-Wg-V3y" secondAttribute="top" id="ZrL-gb-rfi"/>
+                            <constraint firstItem="ENH-d7-h8c" firstAttribute="leading" secondItem="XAj-Wg-V3y" secondAttribute="leading" constant="7" id="4EK-X3-ugV"/>
+                            <constraint firstItem="XAj-Wg-V3y" firstAttribute="bottom" secondItem="ENH-d7-h8c" secondAttribute="bottom" constant="16" id="CYJ-Jl-y4a"/>
+                            <constraint firstAttribute="trailing" secondItem="ENH-d7-h8c" secondAttribute="trailing" constant="7" id="OWa-W7-yjs"/>
+                            <constraint firstItem="ENH-d7-h8c" firstAttribute="top" secondItem="qK0-jB-bz7" secondAttribute="top" constant="16" id="hb7-Ta-39u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XAj-Wg-V3y"/>
                     </view>
@@ -289,45 +290,61 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kUf-jn-25H">
-                                        <rect key="frame" x="11" y="579" width="291" height="155"/>
+                                        <rect key="frame" x="11" y="559" width="291" height="175"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="155" id="T9j-bw-xk5"/>
+                                            <constraint firstAttribute="height" constant="175" id="7aZ-be-xCG"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QTc-WH-TFI">
-                                            <size key="itemSize" width="219" height="122"/>
+                                            <size key="itemSize" width="213" height="137"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="upnextCell" id="P94-4q-oB7" customClass="upnextCollectionViewCell" customModule="NotchArt" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="16.666666666666668" width="219" height="122"/>
+                                                <rect key="frame" x="0.0" y="19" width="213" height="137"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="219" height="122"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="213" height="137"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Mn5-Qf-chZ">
-                                                            <rect key="frame" x="9" y="0.0" width="280" height="161"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zp-9w-WBy">
+                                                            <rect key="frame" x="3" y="3" width="207" height="131"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ek4-a9-70i">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="219" height="146"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="Ek4-a9-70i" secondAttribute="height" multiplier="60:40" id="ql9-qd-dVC"/>
-                                                                    </constraints>
-                                                                </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1b-AZ-GqS">
-                                                                    <rect key="frame" x="0.0" y="150" width="219" height="20.333333333333343"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1b-AZ-GqS">
+                                                                    <rect key="frame" x="0.0" y="103.66666666666667" width="207" height="27.333333333333329"/>
+                                                                    <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ek4-a9-70i">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="207" height="103.66666666666667"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="Ek4-a9-70i" secondAttribute="height" multiplier="2:1" id="jQS-fQ-2Ir"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
-                                                        </stackView>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="X1b-AZ-GqS" secondAttribute="trailing" id="GOw-ma-MyR"/>
+                                                                <constraint firstItem="X1b-AZ-GqS" firstAttribute="leading" secondItem="7zp-9w-WBy" secondAttribute="leading" id="NIq-kr-Y5x"/>
+                                                                <constraint firstItem="X1b-AZ-GqS" firstAttribute="top" secondItem="Ek4-a9-70i" secondAttribute="bottom" id="P5b-cc-A7y"/>
+                                                                <constraint firstAttribute="bottom" secondItem="X1b-AZ-GqS" secondAttribute="bottom" id="ZTe-1v-BAl"/>
+                                                                <constraint firstItem="Ek4-a9-70i" firstAttribute="leading" secondItem="7zp-9w-WBy" secondAttribute="leading" id="hKu-iN-fGo"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Ek4-a9-70i" secondAttribute="trailing" id="hnp-fP-q7i"/>
+                                                                <constraint firstItem="Ek4-a9-70i" firstAttribute="top" secondItem="7zp-9w-WBy" secondAttribute="top" id="iWR-Z0-5AE"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                 </view>
+                                                <constraints>
+                                                    <constraint firstItem="7zp-9w-WBy" firstAttribute="leading" secondItem="P94-4q-oB7" secondAttribute="leading" constant="3" id="HXj-51-g3h"/>
+                                                    <constraint firstAttribute="bottom" secondItem="7zp-9w-WBy" secondAttribute="bottom" constant="3" id="Huc-bN-c6K"/>
+                                                    <constraint firstItem="7zp-9w-WBy" firstAttribute="top" secondItem="P94-4q-oB7" secondAttribute="top" constant="3" id="ITK-W2-MXD"/>
+                                                    <constraint firstAttribute="trailing" secondItem="7zp-9w-WBy" secondAttribute="trailing" constant="3" id="YmL-Is-bKq"/>
+                                                </constraints>
                                                 <connections>
                                                     <outlet property="imageView" destination="Ek4-a9-70i" id="GgY-OQ-xCL"/>
                                                     <outlet property="titleLabel" destination="X1b-AZ-GqS" id="Wqk-4f-IoD"/>
@@ -347,10 +364,13 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                                     <constraint firstAttribute="trailing" secondItem="MwD-jn-ZcF" secondAttribute="trailing" id="CNb-iF-Wc2"/>
                                     <constraint firstAttribute="bottom" secondItem="kUf-jn-25H" secondAttribute="bottom" constant="33" id="Eg4-4d-VOK"/>
                                     <constraint firstItem="uTi-3s-CAb" firstAttribute="leading" secondItem="QNT-7P-58r" secondAttribute="leading" constant="7" id="K6r-gE-ts6"/>
+                                    <constraint firstItem="kUf-jn-25H" firstAttribute="leading" secondItem="QNT-7P-58r" secondAttribute="leading" constant="11" id="Lff-qz-V1f"/>
                                     <constraint firstItem="MwD-jn-ZcF" firstAttribute="leading" secondItem="QNT-7P-58r" secondAttribute="leading" id="MYo-P4-Uey"/>
+                                    <constraint firstAttribute="trailing" secondItem="kUf-jn-25H" secondAttribute="trailing" constant="11" id="VfJ-QT-uRW"/>
                                     <constraint firstAttribute="trailing" secondItem="kUf-jn-25H" secondAttribute="trailing" constant="11" id="eOw-kX-o7F"/>
                                     <constraint firstAttribute="bottom" secondItem="uTi-3s-CAb" secondAttribute="bottom" constant="33" id="fz5-OF-f8B"/>
                                     <constraint firstItem="MwD-jn-ZcF" firstAttribute="top" secondItem="QNT-7P-58r" secondAttribute="top" id="lEi-9e-IyT"/>
+                                    <constraint firstAttribute="bottom" secondItem="kUf-jn-25H" secondAttribute="bottom" constant="33" id="qOE-K9-Gs2"/>
                                     <constraint firstAttribute="trailing" secondItem="uTi-3s-CAb" secondAttribute="trailing" constant="7" id="tM3-e6-9sO"/>
                                 </constraints>
                                 <variation key="default">
@@ -471,7 +491,7 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1716" y="-706.4039408866995"/>
+            <point key="canvasLocation" x="1715.7635467980297" y="-708"/>
         </scene>
         <!--Videos-->
         <scene sceneID="6XG-Ao-biO">
