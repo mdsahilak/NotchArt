@@ -17,8 +17,6 @@ class VideoFilesCollectionViewController: UICollectionViewController {
     var notchArtFiles: [NotchArtFile] = []
     var videoPaths: [String] = []
     
-    var colorChangedCellIndexPaths: [IndexPath] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,11 +30,7 @@ class VideoFilesCollectionViewController: UICollectionViewController {
         
         loadVideosFromDocumentsDir()
         //navigationController?.toolbar.isHidden = true
-        if let toolbarItems = toolbarItems {
-            for item in toolbarItems {
-                item.isEnabled = false
-            }
-        }
+        changeShareAndTrashButtonEnabled(to: false)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -99,23 +93,11 @@ class VideoFilesCollectionViewController: UICollectionViewController {
             if isInEditMode {
                 //collectionView.allowsMultipleSelection = true
                 collectionView.refreshControl?.isEnabled = false
-                navigationController?.toolbar.isHidden = false
-                if let toolbarItems = toolbarItems {
-                    for item in toolbarItems {
-                        item.isEnabled = true
-                    }
-                }
+                changeShareAndTrashButtonEnabled(to: true)
             } else {
                 //collectionView.allowsMultipleSelection = false
                 collectionView.refreshControl?.isEnabled = true
-                
-                navigationController?.toolbar.isHidden = false
-                if let toolbarItems = toolbarItems {
-                    for item in toolbarItems {
-                        item.isEnabled = false
-                    }
-                }
-                //deselctAllItems()
+                changeShareAndTrashButtonEnabled(to: false)
             }
         }
     }
@@ -125,26 +107,9 @@ class VideoFilesCollectionViewController: UICollectionViewController {
         if isInEditMode {
             sender.title = "Done"
         }else {
-            sender.title = "Edit"
+            sender.title = "Select"
         }
         unColorItems()
-    }
-    
-    func unColorItems() {
-        
-        collectionView.performBatchUpdates({
-            var index = 0
-            for i in 0...notchArtFiles.count{
-                let indexPath = IndexPath(item: index, section: 0)
-                collectionView.deselectItem(at: indexPath, animated: true)
-                let cell = collectionView.cellForItem(at: indexPath)
-                cell?.backgroundColor = UIColor.clear
-                
-                index += 1
-            }
-            index = 0
-        }, completion: nil)
-        
     }
     
     
@@ -294,6 +259,38 @@ class VideoFilesCollectionViewController: UICollectionViewController {
             cell?.backgroundColor = UIColor.clear
         }
     }
+    
+    // Start-Excess Methods
+    
+    func changeShareAndTrashButtonEnabled(to state: Bool) {
+        if let toolbarItems = toolbarItems {
+            let shareItem = toolbarItems[0]
+            let trashItem = toolbarItems[4]
+            //Disable these
+            shareItem.isEnabled = state
+            trashItem.isEnabled = state
+        }
+    }
+    
+    func unColorItems() {
+        
+        collectionView.performBatchUpdates({
+            var index = 0
+            for i in 0...notchArtFiles.count{
+                let indexPath = IndexPath(item: index, section: 0)
+                collectionView.deselectItem(at: indexPath, animated: true)
+                let cell = collectionView.cellForItem(at: indexPath)
+                cell?.backgroundColor = UIColor.clear
+                
+                index += 1
+            }
+            index = 0
+        }, completion: nil)
+        
+    }
+    
+    // End-Excess Methods
+    
 
 }
 
