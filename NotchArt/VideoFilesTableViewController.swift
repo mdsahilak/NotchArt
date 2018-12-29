@@ -166,7 +166,6 @@ class VideoFilesTableViewController: UITableViewController {
         if segue.identifier == "FileListToPlayerSegue" {
             if let destinationVC = segue.destination as? ViewController {
                 let index = tableView.indexPathForSelectedRow!.row
-                destinationVC.selectedVideoPath = videoPaths[index]
                 destinationVC.selectedNotchArtFile = notchArtFiles[index]
                 destinationVC.selectedFileIndexPath = tableView.indexPathForSelectedRow!
                 destinationVC.notchArtFiles = self.notchArtFiles

@@ -24,15 +24,6 @@ extension ViewController {
     
     func initializeVideoPlayerWithVideo() {
         
-        // get the path string for the video from assets
-        // this is already available in the variable selectedVideoPath as it was passed from the previous view controller.
-        
-        guard let unwrappedVideoPath = selectedVideoPath else { print("Error! could not unwrap the given path!")
-            return }
-        
-        // convert the path string to a url
-        let videoUrl = URL(fileURLWithPath: unwrappedVideoPath)
-        
         // initialize the video player with the url
         self.player = AVPlayer(url: selectedNotchArtFile.url)
         

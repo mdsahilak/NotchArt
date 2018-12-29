@@ -252,7 +252,6 @@ class VideoFilesCollectionViewController: UICollectionViewController {
         if segue.identifier == "CVtoPlayer" {
             let index = collectionView.indexPathsForSelectedItems!.first
             if let destinationVC = segue.destination as? ViewController {
-                destinationVC.selectedVideoPath = notchArtFiles[index!.item].path
                 destinationVC.selectedNotchArtFile = notchArtFiles[index!.item]
                 destinationVC.selectedFileIndexPath = collectionView.indexPathsForSelectedItems?.first
                 destinationVC.notchArtFiles = self.notchArtFiles

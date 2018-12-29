@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     var selectedFileIndexPath: IndexPath!
     var notchArtFiles: [NotchArtFile]!
     
-    var selectedVideoPath: String?
     var player: AVPlayer?
     var layer: AVPlayerLayer?
     var selectedVideoGravity = AVLayerVideoGravity.resizeAspect
@@ -27,6 +26,8 @@ class ViewController: UIViewController {
     var videoDuration: Double?
     var updateUITimer: Timer!
     var eyeHealthTimer: Timer!
+    
+    var indexPathsForPlayedItems: [IndexPath] = []
     
     var faceIDAvailable: Bool {
         if #available(iOS 11.0, *) {
@@ -223,6 +224,8 @@ class ViewController: UIViewController {
         }
         
         eyeHealthTimer = Timer.scheduledTimer(timeInterval: 20*60 + 25, target: self, selector: #selector(eyeHealthTimerCalled), userInfo: nil, repeats: true)
+        
+        indexPathsForPlayedItems.append(selectedFileIndexPath)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -494,6 +497,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func swipedUp(_ sender: UISwipeGestureRecognizer) {
+        // disable the cell for current item first
+        let currentCell = upnextCollectionView.cellForItem(at: selectedFileIndexPath)
+        currentCell?.isUserInteractionEnabled = false
+        currentCell?.alpha = 0.33
+        //
         UIView.animate(withDuration: 0.5) {
             self.upnextCollectionView.alpha = 1
             self.upnextCollectionView.isUserInteractionEnabled = true
@@ -587,7 +595,9 @@ class ViewController: UIViewController {
         }
         //
         else if let destionationVC = segue.destination as? VideoFilesCollectionViewController {
-            destionationVC.collectionView.reloadItems(at: [selectedFileIndexPath])
+            destionationVC.collectionView.performBatchUpdates({
+                destionationVC.collectionView.reloadItems(at: indexPathsForPlayedItems)
+            }, completion: nil)
         }
         //
 
