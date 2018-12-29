@@ -204,12 +204,15 @@ class VideoFilesCollectionViewController: UICollectionViewController {
     // Uncomment this method to specify if the specified item should be selected
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard isInEditMode else {return}
+        
         let cell = collectionView.cellForItem(at: indexPath)
         //cell?.layer.borderColor = UIColor.red.cgColor
         cell?.backgroundColor = UIColor.darkGray
     }
     
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard isInEditMode else {return}
         let cell = collectionView.cellForItem(at: indexPath)
         //cell?.layer.borderColor = UIColor.clear.cgColor
         cell?.backgroundColor = UIColor.clear
@@ -255,8 +258,7 @@ class VideoFilesCollectionViewController: UICollectionViewController {
                 destinationVC.notchArtFiles = self.notchArtFiles
             }
             collectionView.deselectItem(at: index!, animated: false)
-            let cell = collectionView.cellForItem(at: index!)
-            cell?.backgroundColor = UIColor.clear
+            
         }
     }
     
