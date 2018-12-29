@@ -110,14 +110,15 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="MWQ-9Y-GbX"/>
-                        <barButtonItem systemItem="done" id="vBg-cg-CI7">
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="oFC-0u-BZ3"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Settings" id="Edf-Hd-Rxz">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="vBg-cg-CI7">
                             <connections>
                                 <segue destination="EQe-RO-Fcn" kind="unwind" unwindAction="backToVideosListSegueWithSegue:" id="Qaf-qk-a2W"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="oFC-0u-BZ3"/>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" title="Settings" id="Edf-Hd-Rxz"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GF9-Da-ZTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,14 +152,15 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="LZ6-P0-mwu"/>
-                        <barButtonItem systemItem="done" id="VAU-N1-tCo">
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="HLc-hu-J4F"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Add Videos" id="Wxb-Pw-2s3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="VAU-N1-tCo">
                             <connections>
                                 <segue destination="dNP-Mq-GCI" kind="unwind" unwindAction="backToVideosListSegueWithSegue:" id="lAM-KG-sx6"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="HLc-hu-J4F"/>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" title="Add Videos" id="Wxb-Pw-2s3"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="952-SX-jpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
