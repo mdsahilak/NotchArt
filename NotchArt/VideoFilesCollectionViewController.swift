@@ -17,6 +17,9 @@ class VideoFilesCollectionViewController: UICollectionViewController {
     var notchArtFiles: [NotchArtFile] = []
     var videoPaths: [String] = []
     
+    @IBOutlet weak var settingsBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var addVideosBarButtonItem: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -93,10 +96,14 @@ class VideoFilesCollectionViewController: UICollectionViewController {
             if isInEditMode {
                 //collectionView.allowsMultipleSelection = true
                 collectionView.refreshControl?.isEnabled = false
+                settingsBarButtonItem.isEnabled = false
+                addVideosBarButtonItem.isEnabled = false
                 changeShareAndTrashButtonEnabled(to: true)
             } else {
                 //collectionView.allowsMultipleSelection = false
                 collectionView.refreshControl?.isEnabled = true
+                settingsBarButtonItem.isEnabled = true
+                addVideosBarButtonItem.isEnabled = true
                 changeShareAndTrashButtonEnabled(to: false)
             }
         }

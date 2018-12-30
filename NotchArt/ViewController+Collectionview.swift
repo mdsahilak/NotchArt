@@ -21,16 +21,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upnextCell", for: indexPath) as? upnextCollectionViewCell else {return UICollectionViewCell()}
         
-        cell.imageView.image = notchArtFiles[indexPath.row].previewImage
-        cell.titleLabel.text = notchArtFiles[indexPath.row].title
-        
-        if indexPath == selectedFileIndexPath {
+        if selectedFileIndexPath == indexPath {
             cell.isUserInteractionEnabled = false
-            cell.alpha = 0.33
         } else {
             cell.isUserInteractionEnabled = true
-            cell.alpha = 1
         }
+        
+        cell.imageView.image = notchArtFiles[indexPath.row].previewImage
+        cell.titleLabel.text = notchArtFiles[indexPath.row].title
         
         return cell
         
@@ -46,6 +44,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let newNotchFile = notchArtFiles[indexPath.row]
         let playerItem = AVPlayerItem(asset: newNotchFile.asset)
         player?.replaceCurrentItem(with: playerItem)
+        if let currentTime = newNotchFile.currentTime {
+            player?.seek(to: currentTime)
+        }
         // Update view controller State(fast)
         updateVideoControlsUI()
         videoLengthSlider.maximumValue = Float(playerItem.duration.seconds)
@@ -59,8 +60,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             indexPathsForPlayedItems.append(indexPath)
         }
         //Last
-        collectionView.reloadData()
         collectionView.deselectItem(at: indexPath, animated: true)
+        collectionView.reloadData()
     }
     
 }

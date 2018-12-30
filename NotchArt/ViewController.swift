@@ -208,6 +208,7 @@ class ViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         //This part of updating the AV player and player layer is called here, so as to make the player Layer adhere to the mainView's constraints.
         //updatePLayerLayerToUI()
+        upnextCollectionView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -470,6 +471,7 @@ class ViewController: UIViewController {
             if userWasPlaying == true{
                 playVideo()
             }
+            upnextCollectionView.reloadData()
             // reset the 3D touch mode identifier variable.
             isIn3DtouchMode = false
         }
@@ -497,11 +499,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func swipedUp(_ sender: UISwipeGestureRecognizer) {
-        // disable the cell for current item first
-        let currentCell = upnextCollectionView.cellForItem(at: selectedFileIndexPath)
-        currentCell?.isUserInteractionEnabled = false
-        currentCell?.alpha = 0.33
-        //
+        upnextCollectionView.reloadData()
         UIView.animate(withDuration: 0.5) {
             self.upnextCollectionView.alpha = 1
             self.upnextCollectionView.isUserInteractionEnabled = true
@@ -517,7 +515,6 @@ class ViewController: UIViewController {
         
         if upnextCVisVisible {
             UIView.animate(withDuration: 0.5) {
-                
                 self.upnextCollectionView.transform = CGAffineTransform(translationX: self.upnextCollectionView.frame.origin.x, y: self.view.frame.maxY)
             }
             upnextCVisVisible = false
@@ -590,16 +587,11 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? VideoFilesTableViewController {
-            destinationVC.tableView.reloadRows(at: [selectedFileIndexPath], with: .none)
-        }
-        //
-        else if let destionationVC = segue.destination as? VideoFilesCollectionViewController {
+        if let destionationVC = segue.destination as? VideoFilesCollectionViewController {
             destionationVC.collectionView.performBatchUpdates({
                 destionationVC.collectionView.reloadItems(at: indexPathsForPlayedItems)
             }, completion: nil)
         }
-        //
 
     }
 

@@ -10,78 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Videos-->
-        <scene sceneID="zFv-Px-3YY">
-            <objects>
-                <tableViewController id="ek3-js-fDA" customClass="VideoFilesTableViewController" customModule="NotchArt" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RtA-bC-i3k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="VideoFileCellIdentifier" rowHeight="294" id="Ya2-eS-PsA" customClass="videoTableViewCell" customModule="NotchArt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="294"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ya2-eS-PsA" id="ocS-AW-DgC">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="293.66666666666669"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="mZf-qC-Mv8">
-                                            <rect key="frame" x="13" y="13" width="349" height="267.66666666666669"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jdj-uR-bh9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="349" height="232.66666666666666"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Jdj-uR-bh9" secondAttribute="height" multiplier="60:40" id="vaJ-Iy-bO2"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3n-VX-dlt">
-                                                    <rect key="frame" x="0.0" y="243.66666666666669" width="349" height="24"/>
-                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
-                                                    <color key="textColor" red="0.89887410066348428" green="0.91675857710587316" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="mZf-qC-Mv8" firstAttribute="top" secondItem="ocS-AW-DgC" secondAttribute="top" constant="13" id="VgQ-Cb-kfj"/>
-                                        <constraint firstItem="mZf-qC-Mv8" firstAttribute="leading" secondItem="ocS-AW-DgC" secondAttribute="leading" constant="13" id="X9Q-7E-Olf"/>
-                                        <constraint firstAttribute="bottom" secondItem="mZf-qC-Mv8" secondAttribute="bottom" constant="13" id="ZAv-H5-rnj"/>
-                                        <constraint firstAttribute="trailing" secondItem="mZf-qC-Mv8" secondAttribute="trailing" constant="13" id="viN-J1-Rey"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <outlet property="imageVIew" destination="Jdj-uR-bh9" id="KS2-gh-wA2"/>
-                                    <outlet property="titleLabel" destination="e3n-VX-dlt" id="VIE-Cq-2Nh"/>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="FileListToPlayerSegue" id="jhu-xZ-ruF"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="ek3-js-fDA" id="1PW-Pf-Ucl"/>
-                            <outlet property="delegate" destination="ek3-js-fDA" id="Xm3-0G-LXc"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Videos" id="glc-Vq-7C5">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="1g5-EL-O3z"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="B5J-E7-Fa0">
-                            <connections>
-                                <segue destination="JbY-sV-u1u" kind="show" id="sMa-XW-8Sz"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dp7-5C-3Lj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="804" y="-800"/>
-        </scene>
         <!--Settings-->
         <scene sceneID="Ae4-c6-h9c">
             <objects>
@@ -124,7 +52,7 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GF9-Da-ZTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="EQe-RO-Fcn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="250.40000000000001" y="375.36945812807886"/>
+            <point key="canvasLocation" x="-25" y="355"/>
         </scene>
         <!--Add Videos-->
         <scene sceneID="pUU-Wg-v8v">
@@ -167,33 +95,7 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="952-SX-jpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dNP-Mq-GCI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2238" y="355"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="vc4-NY-fLa">
-            <objects>
-                <navigationController hidesBottomBarWhenPushed="YES" toolbarHidden="NO" id="qqG-qU-h0U" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="Tll-K3-WM1">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="ttD-9d-arN">
-                        <rect key="frame" x="0.0" y="729" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="ek3-js-fDA" kind="relationship" relationship="rootViewController" id="X1I-7F-Apd"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J2j-Di-mn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-71" y="-1249"/>
+            <point key="canvasLocation" x="2290" y="400"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -491,7 +393,7 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1715.7635467980297" y="-708"/>
+            <point key="canvasLocation" x="1644" y="-585"/>
         </scene>
         <!--Videos-->
         <scene sceneID="6XG-Ao-biO">
@@ -592,6 +494,10 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addVideosBarButtonItem" destination="kvu-Lh-WEW" id="3xj-YZ-0mR"/>
+                        <outlet property="settingsBarButtonItem" destination="Qir-Wp-WQO" id="IHO-D1-2II"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bL-t5-VoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -620,7 +526,7 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGj-I9-Jr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-897" y="-554"/>
+            <point key="canvasLocation" x="-1031" y="-905"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HPl-tz-aNc">
@@ -668,7 +574,7 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SlL-jG-KaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-692" y="375.36945812807886"/>
+            <point key="canvasLocation" x="-1030" y="400"/>
         </scene>
     </scenes>
     <resources>
@@ -676,8 +582,4 @@ Copyright © 2018 MDAK         All rights reserved.</string>
         <image name="jon-flobrant-230583-unsplash" width="5472" height="3648"/>
         <image name="play" width="60" height="60"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="cdx-W1-eCK"/>
-        <segue reference="tm1-WM-W15"/>
-    </inferredMetricsTieBreakers>
 </document>
