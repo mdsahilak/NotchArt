@@ -194,6 +194,14 @@ class ViewController: UIViewController {
         return .lightContent
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         updateUITimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateVideoControlsUI), userInfo: nil, repeats: true)
         
