@@ -103,6 +103,8 @@ class ViewController: UIViewController {
         }
     }
     
+    var SubtitleParser: Subtitles?
+    
     var volumeSliderView: MPVolumeView!
     
     @IBOutlet weak var mainView: UIView!
@@ -116,6 +118,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var timeElapsedLabel: UILabel!
     @IBOutlet weak var timeRemainingLabel: UILabel!
+    
+    @IBOutlet weak var subtitleLabel: UILabel!
     
     @IBOutlet weak var dismissButton: UIButton!
     
@@ -188,6 +192,14 @@ class ViewController: UIViewController {
         //upnextCVbottomConstraint.constant = -(upnextCollectionView.frame.height + videoLengthSlider.frame.height + 7)
         //
         
+        // Load Custom subtitles Parser
+        if let subtitlesURL = selectedNotchArtFile.subtitleURL {
+            SubtitleParser = Subtitles(file: subtitlesURL)
+        } else {
+            SubtitleParser = nil
+        }
+        //
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -221,7 +233,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if player?.currentItem?.asset.isPlayable == false {
-            let alertController = UIAlertController(title: "Oops!", message: "Sorry, This format is not supported at the moment, Please check back later", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Oops!", message: "Sorry, This format is not Playable Bro.", preferredStyle: .alert)
             let action = UIAlertAction(title: "Okay", style: .default) { (action) in
                 self.dismiss(animated: true, completion: nil)
             }
@@ -262,6 +274,14 @@ class ViewController: UIViewController {
         timeElapsedLabel.text = "\(hE):\(mE):\(sE)"
         let (hR, mR, sR) = secondsToHoursMinutesSecondsString(seconds: Int(videoDuration! - currentTime!))
         timeRemainingLabel.text = "-\(hR):\(mR):\(sR)"
+        // subtitles
+        guard let _ = SubtitleParser else {return}
+        if let currentSubtitle = SubtitleParser?.searchSubtitles(at: currentTime!) {
+            subtitleLabel.text = currentSubtitle
+        } else {
+            subtitleLabel.text = ""
+        }
+        //
     }
     
     @objc func eyeHealthTimerCalled() {

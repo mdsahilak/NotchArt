@@ -20,9 +20,18 @@ class NotchArtFile {
     var totalDuration: Double
     var currentTime: CMTime?
     var defaultPreviewImageTime: CMTime
+    var subtitleURL: URL?
     
     var isPlayable: Bool {
         return asset.isPlayable
+    }
+    
+    var isSubtitleFile: Bool {
+        if url.pathExtension == "srt" {
+            return true
+        } else {
+            return false
+        }
     }
 
     init(url: URL) {
@@ -33,6 +42,12 @@ class NotchArtFile {
         self.asset = AVAsset(url: url)
         self.totalDuration = asset.duration.seconds
         self.defaultPreviewImageTime = CMTime(seconds: totalDuration / 2, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        let subtitleCheckURL = url.deletingPathExtension().appendingPathExtension("srt")
+        if FileManager.default.fileExists(atPath: subtitleCheckURL.path) {
+            self.subtitleURL = subtitleCheckURL
+        } else {
+            self.subtitleURL = nil
+        }
         loadPreviewImage()
     }
     
@@ -42,7 +57,11 @@ class NotchArtFile {
         if let generatedImage = try? imageGenerator.copyCGImage(at: currentTime ?? defaultPreviewImageTime, actualTime: nil) {
             self.previewImage = UIImage(cgImage: generatedImage)
         } else {
-            self.previewImage = UIImage(named: "Loading")
+            if isSubtitleFile {
+                self.previewImage = UIImage(named: "CC")
+            } else {
+                self.previewImage = UIImage(named: "Loading")
+            }
         }
     }
     

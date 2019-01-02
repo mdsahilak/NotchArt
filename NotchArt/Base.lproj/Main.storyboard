@@ -108,6 +108,16 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNT-7P-58r" customClass="videoPlayerView" customModule="NotchArt" customModuleProvider="target">
                                 <rect key="frame" x="31" y="44" width="313" height="767"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEj-16-yzJ">
+                                        <rect key="frame" x="0.0" y="684" width="313" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="AjQ-0K-Kxu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="uTi-3s-CAb">
                                         <rect key="frame" x="7" y="680.66666666666663" width="299" height="53.333333333333371"/>
                                         <subviews>
@@ -265,14 +275,17 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                                     <constraint firstItem="kUf-jn-25H" firstAttribute="leading" secondItem="QNT-7P-58r" secondAttribute="leading" constant="11" id="7Bp-jg-62w"/>
                                     <constraint firstAttribute="trailing" secondItem="MwD-jn-ZcF" secondAttribute="trailing" id="CNb-iF-Wc2"/>
                                     <constraint firstAttribute="bottom" secondItem="kUf-jn-25H" secondAttribute="bottom" constant="33" id="Eg4-4d-VOK"/>
+                                    <constraint firstAttribute="trailing" secondItem="WEj-16-yzJ" secondAttribute="trailing" id="GPq-HW-C1S"/>
                                     <constraint firstItem="uTi-3s-CAb" firstAttribute="leading" secondItem="QNT-7P-58r" secondAttribute="leading" constant="7" id="K6r-gE-ts6"/>
                                     <constraint firstItem="kUf-jn-25H" firstAttribute="leading" secondItem="QNT-7P-58r" secondAttribute="leading" constant="11" id="Lff-qz-V1f"/>
                                     <constraint firstItem="MwD-jn-ZcF" firstAttribute="leading" secondItem="QNT-7P-58r" secondAttribute="leading" id="MYo-P4-Uey"/>
                                     <constraint firstAttribute="trailing" secondItem="kUf-jn-25H" secondAttribute="trailing" constant="11" id="VfJ-QT-uRW"/>
+                                    <constraint firstAttribute="bottom" secondItem="WEj-16-yzJ" secondAttribute="bottom" constant="33" id="XP2-G5-C4C"/>
                                     <constraint firstAttribute="trailing" secondItem="kUf-jn-25H" secondAttribute="trailing" constant="11" id="eOw-kX-o7F"/>
                                     <constraint firstAttribute="bottom" secondItem="uTi-3s-CAb" secondAttribute="bottom" constant="33" id="fz5-OF-f8B"/>
                                     <constraint firstItem="MwD-jn-ZcF" firstAttribute="top" secondItem="QNT-7P-58r" secondAttribute="top" id="lEi-9e-IyT"/>
                                     <constraint firstAttribute="bottom" secondItem="kUf-jn-25H" secondAttribute="bottom" constant="33" id="qOE-K9-Gs2"/>
+                                    <constraint firstItem="WEj-16-yzJ" firstAttribute="leading" secondItem="QNT-7P-58r" secondAttribute="leading" id="sPG-GK-T7V"/>
                                     <constraint firstAttribute="trailing" secondItem="uTi-3s-CAb" secondAttribute="trailing" constant="7" id="tM3-e6-9sO"/>
                                 </constraints>
                                 <variation key="default">
@@ -343,6 +356,7 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                         <outlet property="mainViewTrailingConstraint" destination="hcO-Ru-I5A" id="lXP-gr-Xsj"/>
                         <outlet property="muteButton" destination="Ray-U1-zjW" id="1im-8A-7Xr"/>
                         <outlet property="playPauseButton" destination="Bha-b0-LHf" id="qGH-G8-Wdk"/>
+                        <outlet property="subtitleLabel" destination="WEj-16-yzJ" id="elG-yH-CbA"/>
                         <outlet property="timeElapsedLabel" destination="1aD-Su-A7i" id="EJk-ih-rBC"/>
                         <outlet property="timeRemainingLabel" destination="Ljo-Nf-LrK" id="Wyc-IV-lhS"/>
                         <outlet property="upnextCollectionView" destination="kUf-jn-25H" id="FgN-AL-RGk"/>
@@ -393,7 +407,7 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1644" y="-585"/>
+            <point key="canvasLocation" x="1644" y="-585.22167487684726"/>
         </scene>
         <!--Videos-->
         <scene sceneID="6XG-Ao-biO">
@@ -423,6 +437,8 @@ Copyright © 2018 MDAK         All rights reserved.</string>
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Mu-MP-Ysy">
                                             <rect key="frame" x="7" y="7" width="322" height="161"/>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="8Mu-MP-Ysy" secondAttribute="height" multiplier="2:1" id="M3R-wY-IuJ"/>
                                             </constraints>
