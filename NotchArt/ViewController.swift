@@ -14,6 +14,8 @@ import LocalAuthentication
 
 class ViewController: UIViewController {
     
+    let userDefaults = UserDefaults.standard
+    
     var selectedNotchArtFile: NotchArtFile!
     var selectedFileIndexPath: IndexPath!
     var notchArtFiles: [NotchArtFile]!
@@ -198,6 +200,9 @@ class ViewController: UIViewController {
         } else {
             SubtitleParser = nil
         }
+        //
+        // User settings
+        //userDefaults.set(0.0, forKey: "Notch_Hide_Constraint")
         //
         
     }
@@ -559,12 +564,10 @@ class ViewController: UIViewController {
     @IBAction func videoScreenPiched(_ sender: UIPinchGestureRecognizer) {
         guard sender.state == .recognized else {return}
         
-        guard UIDevice.current.orientation == .landscapeRight || UIDevice.current.orientation == .landscapeLeft else {return}
-        
         if sender.scale > 1.00 {
-            //layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            //selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
-            
+            layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
+            /*
             switch currentAspectType {
             case .original:
                 layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
@@ -580,11 +583,11 @@ class ViewController: UIViewController {
             case .fullFill:
                 print("Pushing the limits forward huh?")
             }
-            
+            */
         } else if sender.scale < 1.00 {
-            //layer?.videoGravity = AVLayerVideoGravity.resizeAspect
-            //selectedVideoGravity = AVLayerVideoGravity.resizeAspect
-            
+            layer?.videoGravity = AVLayerVideoGravity.resizeAspect
+            selectedVideoGravity = AVLayerVideoGravity.resizeAspect
+            /*
             switch currentAspectType {
             case .fullFill:
                 self.mainViewLeadingConstraint.constant = 30.0
@@ -601,6 +604,8 @@ class ViewController: UIViewController {
                 print("Pushing the limits backwards huh?")
             }
             
+        }
+        */
         } else {
             print("Error@ videoScreenPiched(...) IBAction Method !")
         }

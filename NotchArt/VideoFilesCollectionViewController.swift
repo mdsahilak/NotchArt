@@ -17,6 +17,10 @@ class VideoFilesCollectionViewController: UICollectionViewController {
     var notchArtFiles: [NotchArtFile] = []
     var videoPaths: [String] = []
     
+    let userDefaults = UserDefaults.standard
+    
+    var numberOfItemsSelected: Int = 0
+    
     @IBOutlet weak var settingsBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var addVideosBarButtonItem: UIBarButtonItem!
     
@@ -34,6 +38,8 @@ class VideoFilesCollectionViewController: UICollectionViewController {
         loadVideosFromDocumentsDir()
         //navigationController?.toolbar.isHidden = true
         changeShareAndTrashButtonEnabled(to: false)
+        
+        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -71,6 +77,7 @@ class VideoFilesCollectionViewController: UICollectionViewController {
             notchArtFiles.append(notchArtFile)
             //
         }
+        notchArtFiles.sort { $0.path < $1.path }
     }
     
     func documentDirDidChange() -> Bool? {
@@ -99,12 +106,14 @@ class VideoFilesCollectionViewController: UICollectionViewController {
                 settingsBarButtonItem.isEnabled = false
                 addVideosBarButtonItem.isEnabled = false
                 changeShareAndTrashButtonEnabled(to: true)
+                updateCountBadge()
             } else {
                 //collectionView.allowsMultipleSelection = false
                 collectionView.refreshControl?.isEnabled = true
                 settingsBarButtonItem.isEnabled = true
                 addVideosBarButtonItem.isEnabled = true
                 changeShareAndTrashButtonEnabled(to: false)
+                updateCountBadge()
             }
         }
     }
@@ -215,6 +224,8 @@ class VideoFilesCollectionViewController: UICollectionViewController {
         
         let cell = collectionView.cellForItem(at: indexPath)
         //cell?.layer.borderColor = UIColor.red.cgColor
+        numberOfItemsSelected += 1
+        updateCountBadge()
         cell?.backgroundColor = UIColor.darkGray
     }
     
@@ -222,8 +233,9 @@ class VideoFilesCollectionViewController: UICollectionViewController {
         guard isInEditMode else {return}
         let cell = collectionView.cellForItem(at: indexPath)
         //cell?.layer.borderColor = UIColor.clear.cgColor
+        numberOfItemsSelected -= 1
+        updateCountBadge()
         cell?.backgroundColor = UIColor.clear
-        
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -295,6 +307,15 @@ class VideoFilesCollectionViewController: UICollectionViewController {
             index = 0
         }, completion: nil)
         
+    }
+    
+    func updateCountBadge() {
+        if isInEditMode {
+            self.navigationItem.title = "\(numberOfItemsSelected) selected"
+        } else {
+            numberOfItemsSelected = 0
+            self.navigationItem.title = "Videos"
+        }
     }
     
     // End-Excess Methods

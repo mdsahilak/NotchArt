@@ -27,6 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Setting audio session category failed.")
         }
         
+        let userDefaults = UserDefaults.standard
+        if let _ = userDefaults.object(forKey: "Notch_Hide_Constraint") {
+        } else {
+            userDefaults.set(30.0, forKey: "Notch_Hide_Constraint")
+        }
+        
         return true
     }
 

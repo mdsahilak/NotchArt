@@ -21,11 +21,12 @@ extension ViewController {
     }
     
     func setSideConstraints(size: CGSize) {
+        let notchHideConstraintValue = userDefaults.double(forKey: "Notch_Hide_Constraint")
         
         if size.width / size.height > 1 {
             //LandscapeLeft or LandscapeRight
-            mainViewLeadingConstraint.constant = 30.0
-            mainViewTrailingConstraint.constant = 30.0
+            mainViewLeadingConstraint.constant = CGFloat(notchHideConstraintValue)
+            mainViewTrailingConstraint.constant = CGFloat(notchHideConstraintValue)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 self.layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill

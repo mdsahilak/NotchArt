@@ -42,6 +42,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         selectedNotchArtFile.loadPreviewImage()
         // Replace the player's item
         let newNotchFile = notchArtFiles[indexPath.row]
+        
+        guard newNotchFile.isPlayable else {return}
+        
         let playerItem = AVPlayerItem(asset: newNotchFile.asset)
         player?.replaceCurrentItem(with: playerItem)
         if let currentTime = newNotchFile.currentTime {
