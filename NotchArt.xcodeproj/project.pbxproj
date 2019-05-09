@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E903559821DD5313000D908E /* Subtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903559721DD5313000D908E /* Subtitle.swift */; };
-		E9205FBB214E5FD6007132F9 /* UIDevice+ModelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9205FBA214E5FD6007132F9 /* UIDevice+ModelName.swift */; };
 		E92A396E219DD4D9005F2C6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E92A396C219DD4D9005F2C6C /* Main.storyboard */; };
 		E92A397121A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A397021A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift */; };
 		E94D345021B3EDB100857647 /* ViewController+Collectionview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94D344F21B3EDB100857647 /* ViewController+Collectionview.swift */; };
@@ -28,7 +27,6 @@
 
 /* Begin PBXFileReference section */
 		E903559721DD5313000D908E /* Subtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subtitle.swift; sourceTree = "<group>"; };
-		E9205FBA214E5FD6007132F9 /* UIDevice+ModelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ModelName.swift"; sourceTree = "<group>"; };
 		E92A396D219DD4D9005F2C6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E92A397021A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIview+AVPlayerLayer.swift"; sourceTree = "<group>"; };
 		E94D344F21B3EDB100857647 /* ViewController+Collectionview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Collectionview.swift"; sourceTree = "<group>"; };
@@ -79,25 +77,48 @@
 			isa = PBXGroup;
 			children = (
 				E96A940D212D309300F62060 /* AppDelegate.swift */,
-				E9EE5DDB214850E20067C67E /* VideoFile.swift */,
-				E9205FBA214E5FD6007132F9 /* UIDevice+ModelName.swift */,
-				E92A397021A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift */,
-				E9E01B6421C9689A00234D13 /* AspectTypesEnum.swift */,
+				E9BBE41A221B03980030A0F0 /* Extensions */,
+				E9BBE419221B03560030A0F0 /* Models */,
 				E94D345121B3F02100857647 /* upnextCollectionViewCell.swift */,
 				E9DE0E2421D16F4300E57BB2 /* VideoFileCollectionViewCell.swift */,
-				E903559721DD5313000D908E /* Subtitle.swift */,
 				E92A396C219DD4D9005F2C6C /* Main.storyboard */,
 				E9D3889F21E20E4E002F12C5 /* SettingsTableViewController.swift */,
 				E9DE0E2621D16F6000E57BB2 /* VideoFilesCollectionViewController.swift */,
-				E96A940F212D309300F62060 /* ViewController.swift */,
-				E99EEE1F21C5B17D00F721A6 /* ViewController++.swift */,
-				E99EEE2121C5B1EB00F721A6 /* ViewController+Misc.swift */,
-				E94D344F21B3EDB100857647 /* ViewController+Collectionview.swift */,
+				E9BBE41B221B03D60030A0F0 /* Player View Controller */,
 				E96A9414212D309600F62060 /* Assets.xcassets */,
 				E96A9416212D309600F62060 /* LaunchScreen.storyboard */,
 				E96A9419212D309600F62060 /* Info.plist */,
 			);
 			path = NotchArt;
+			sourceTree = "<group>";
+		};
+		E9BBE419221B03560030A0F0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E9EE5DDB214850E20067C67E /* VideoFile.swift */,
+				E9E01B6421C9689A00234D13 /* AspectTypesEnum.swift */,
+				E903559721DD5313000D908E /* Subtitle.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E9BBE41A221B03980030A0F0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E92A397021A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E9BBE41B221B03D60030A0F0 /* Player View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E96A940F212D309300F62060 /* ViewController.swift */,
+				E99EEE1F21C5B17D00F721A6 /* ViewController++.swift */,
+				E99EEE2121C5B1EB00F721A6 /* ViewController+Misc.swift */,
+				E94D344F21B3EDB100857647 /* ViewController+Collectionview.swift */,
+			);
+			path = "Player View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +208,6 @@
 				E903559821DD5313000D908E /* Subtitle.swift in Sources */,
 				E9DE0E2521D16F4300E57BB2 /* VideoFileCollectionViewCell.swift in Sources */,
 				E99EEE2021C5B17D00F721A6 /* ViewController++.swift in Sources */,
-				E9205FBB214E5FD6007132F9 /* UIDevice+ModelName.swift in Sources */,
 				E94D345221B3F02100857647 /* upnextCollectionViewCell.swift in Sources */,
 				E9E01B6521C9689A00234D13 /* AspectTypesEnum.swift in Sources */,
 				E92A397121A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift in Sources */,

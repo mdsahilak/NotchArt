@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(.playback, mode: .default, policy: .default, options: .defaultToSpeaker)
+            try audioSession.setCategory(.playback, mode: .moviePlayback, options: [])
         } catch  {
             print("Setting audio session category failed.")
         }

@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SafariServices
 
 class SettingsTableViewController: UITableViewController {
 
     let userDefaults = UserDefaults.standard
+    let helpURL = URL(string: "http://helloworldmdak.vapor.cloud/yolo")!
     
     @IBOutlet weak var hideNotchButton: UISwitch!
     
@@ -61,6 +63,16 @@ class SettingsTableViewController: UITableViewController {
         return cell
     }
     */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // open help url in safari view controller if help cell is tapped
+        if indexPath == IndexPath(row: 0, section: 1) {
+            let safariViewController = SFSafariViewController(url: helpURL)
+            safariViewController.preferredControlTintColor = UIColor.red
+            safariViewController.preferredBarTintColor = UIColor.black
+            self.present(safariViewController, animated: true, completion: nil)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

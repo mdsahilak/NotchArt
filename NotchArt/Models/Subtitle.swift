@@ -2,8 +2,8 @@
 //  Subtitle.swift
 //  NotchArt
 //
-//  Created by Muhammed Sahil on 03/01/19.
-//  Copyright © 2019 MDAK. All rights reserved.
+//
+// 
 //
 
 import Foundation

@@ -97,5 +97,7 @@
 	<array>
 		<dict/>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>To save videos to the Camera Roll</string>
 </dict>
 </plist>

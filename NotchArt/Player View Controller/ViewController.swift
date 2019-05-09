@@ -466,21 +466,7 @@ class ViewController: UIViewController {
             pauseVideo()
             // Below video scrub power has been set. it is set as a multiplier to the change in touch positions as the difference value alone is too small to cause smooth scrubbing on video, so the multiplier profounds the change so that the minute change in the cgfloat value causes a noticeable difference as scrubbing.
             var scrubPower = videoDuration! / 500
-            if scrubPower < 3.5 { scrubPower = 3.5 }
-            
-            /* Testing - For variable scrubbing power based on Y coordinate of the touch
-            let yAxisPercentage = (touchLocation.y * 100) / mainView.frame.maxY
-            if yAxisPercentage <= 25 {
-                scrubPower = 4
-            } else if yAxisPercentage <= 50 {
-                scrubPower = 7
-            } else if yAxisPercentage <= 75 {
-                scrubPower = 13
-            } else {
-                print("Full Force")
-            }
-            */
-            
+            if scrubPower < 1 { scrubPower += 1 }
             let diff = Double(touchLocation.x - previosLocation.x) * scrubPower
             //print(touchLocation)
             //print(previosLocation)
@@ -567,45 +553,9 @@ class ViewController: UIViewController {
         if sender.scale > 1.00 {
             layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
-            /*
-            switch currentAspectType {
-            case .original:
-                layer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-                selectedVideoGravity = AVLayerVideoGravity.resizeAspectFill
-                currentAspectType = .nonNotchFill
-            case .nonNotchFill:
-                self.mainViewLeadingConstraint.constant = 0.0
-                self.mainViewTrailingConstraint.constant = 0.0
-                UIView.animate(withDuration: 0.2) {
-                    self.view.layoutIfNeeded()
-                }
-                currentAspectType = .fullFill
-            case .fullFill:
-                print("Pushing the limits forward huh?")
-            }
-            */
         } else if sender.scale < 1.00 {
             layer?.videoGravity = AVLayerVideoGravity.resizeAspect
             selectedVideoGravity = AVLayerVideoGravity.resizeAspect
-            /*
-            switch currentAspectType {
-            case .fullFill:
-                self.mainViewLeadingConstraint.constant = 30.0
-                self.mainViewTrailingConstraint.constant = 30.0
-                UIView.animate(withDuration: 0.2) {
-                    self.view.layoutIfNeeded()
-                }
-                currentAspectType = .nonNotchFill
-            case .nonNotchFill:
-                layer?.videoGravity = AVLayerVideoGravity.resizeAspect
-                selectedVideoGravity = AVLayerVideoGravity.resizeAspect
-                currentAspectType = .original
-            case .original:
-                print("Pushing the limits backwards huh?")
-            }
-            
-        }
-        */
         } else {
             print("Error@ videoScreenPiched(...) IBAction Method !")
         }
