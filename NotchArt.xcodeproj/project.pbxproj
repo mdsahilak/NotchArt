@@ -21,6 +21,7 @@
 		E9D388A021E20E4E002F12C5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D3889F21E20E4E002F12C5 /* SettingsTableViewController.swift */; };
 		E9DE0E2521D16F4300E57BB2 /* VideoFileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DE0E2421D16F4300E57BB2 /* VideoFileCollectionViewCell.swift */; };
 		E9DE0E2721D16F6000E57BB2 /* VideoFilesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DE0E2621D16F6000E57BB2 /* VideoFilesCollectionViewController.swift */; };
+		E9DF468A2284876200819343 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E9DF46892284876200819343 /* README.md */; };
 		E9E01B6521C9689A00234D13 /* AspectTypesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E01B6421C9689A00234D13 /* AspectTypesEnum.swift */; };
 		E9EE5DDC214850E20067C67E /* VideoFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE5DDB214850E20067C67E /* VideoFile.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		E9D3889F21E20E4E002F12C5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		E9DE0E2421D16F4300E57BB2 /* VideoFileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFileCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9DE0E2621D16F6000E57BB2 /* VideoFilesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFilesCollectionViewController.swift; sourceTree = "<group>"; };
+		E9DF46892284876200819343 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E9E01B6421C9689A00234D13 /* AspectTypesEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectTypesEnum.swift; sourceTree = "<group>"; };
 		E9EE5DDB214850E20067C67E /* VideoFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +64,7 @@
 			children = (
 				E96A940C212D309300F62060 /* NotchArt */,
 				E96A940B212D309300F62060 /* Products */,
+				E9DF46892284876200819343 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,6 +190,7 @@
 			files = (
 				E92A396E219DD4D9005F2C6C /* Main.storyboard in Resources */,
 				E96A9418212D309600F62060 /* LaunchScreen.storyboard in Resources */,
+				E9DF468A2284876200819343 /* README.md in Resources */,
 				E96A9415212D309600F62060 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
