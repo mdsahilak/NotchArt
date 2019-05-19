@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import SideVolumeHUD
+import Volumizer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             userDefaults.set(30.0, forKey: "Notch_Hide_Constraint")
         }
+        
+        SideVolumeHUD.hideDefaultVolumeHUD(from: self.window)
+        SideVolumeHUD.shared.setup(withOptions: [.animationStyle(.slideLeftRight)])
+        
         
         return true
     }

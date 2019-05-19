@@ -1,0 +1,6 @@
+framework module Volumizer {
+  umbrella header "Volumizer-umbrella.h"
+
+  export *
+  module * { export * }
+}

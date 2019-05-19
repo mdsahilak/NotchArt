@@ -48,6 +48,8 @@
 		<key>NSAllowsArbitraryLoadsInWebContent</key>
 		<true/>
 	</dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>To save videos to the Camera Roll</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -63,7 +65,7 @@
 	<key>UIStatusBarHidden</key>
 	<false/>
 	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleDefault</string>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeRight</string>
@@ -97,7 +99,5 @@
 	<array>
 		<dict/>
 	</array>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>To save videos to the Camera Roll</string>
 </dict>
 </plist>

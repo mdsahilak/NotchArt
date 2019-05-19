@@ -1,0 +1,6 @@
+framework module Pods_NotchArt {
+  umbrella header "Pods-NotchArt-umbrella.h"
+
+  export *
+  module * { export * }
+}

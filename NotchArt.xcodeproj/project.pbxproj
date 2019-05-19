@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3670AEA02291D62900BB6913 /* KVolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670AE9F2291D62900BB6913 /* KVolumeSlider.swift */; };
+		3670AE9C2291C7B900BB6913 /* KVolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670AE9B2291C7B900BB6913 /* KVolumeSlider.swift */; };
+		9BDF6324CB7216E36558FDB7 /* Pods_NotchArt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B80D8F29B83D287B67F0C5 /* Pods_NotchArt.framework */; };
 		E903559821DD5313000D908E /* Subtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903559721DD5313000D908E /* Subtitle.swift */; };
 		E92A396E219DD4D9005F2C6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E92A396C219DD4D9005F2C6C /* Main.storyboard */; };
 		E92A397121A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A397021A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift */; };
@@ -28,7 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3670AE9F2291D62900BB6913 /* KVolumeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVolumeSlider.swift; sourceTree = "<group>"; };
+		3670AE9B2291C7B900BB6913 /* KVolumeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVolumeSlider.swift; sourceTree = "<group>"; };
+		4341F9F67399207D72E5F55C /* Pods-NotchArt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotchArt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotchArt/Pods-NotchArt.debug.xcconfig"; sourceTree = "<group>"; };
+		60B80D8F29B83D287B67F0C5 /* Pods_NotchArt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotchArt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E903559721DD5313000D908E /* Subtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subtitle.swift; sourceTree = "<group>"; };
 		E92A396D219DD4D9005F2C6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E92A397021A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIview+AVPlayerLayer.swift"; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		E96A9419212D309600F62060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E99EEE1F21C5B17D00F721A6 /* ViewController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController++.swift"; sourceTree = "<group>"; };
 		E99EEE2121C5B1EB00F721A6 /* ViewController+Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Misc.swift"; sourceTree = "<group>"; };
+		E9A4454A6308D33BCDAA4204 /* Pods-NotchArt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotchArt.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotchArt/Pods-NotchArt.release.xcconfig"; sourceTree = "<group>"; };
 		E9D3889F21E20E4E002F12C5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		E9DE0E2421D16F4300E57BB2 /* VideoFileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFileCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9DE0E2621D16F6000E57BB2 /* VideoFilesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFilesCollectionViewController.swift; sourceTree = "<group>"; };
@@ -55,18 +59,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BDF6324CB7216E36558FDB7 /* Pods_NotchArt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA45EB1F34D7E68E61CAB064 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4341F9F67399207D72E5F55C /* Pods-NotchArt.debug.xcconfig */,
+				E9A4454A6308D33BCDAA4204 /* Pods-NotchArt.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DB6834320445EFDEEAE0130D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60B80D8F29B83D287B67F0C5 /* Pods_NotchArt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E96A9401212D309200F62060 = {
 			isa = PBXGroup;
 			children = (
 				E96A940C212D309300F62060 /* NotchArt */,
 				E96A940B212D309300F62060 /* Products */,
 				E9DF46892284876200819343 /* README.md */,
+				AA45EB1F34D7E68E61CAB064 /* Pods */,
+				DB6834320445EFDEEAE0130D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,7 +142,7 @@
 		E9BBE41B221B03D60030A0F0 /* Player View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3670AE9F2291D62900BB6913 /* KVolumeSlider.swift */,
+				3670AE9B2291C7B900BB6913 /* KVolumeSlider.swift */,
 				E96A940F212D309300F62060 /* ViewController.swift */,
 				E99EEE1F21C5B17D00F721A6 /* ViewController++.swift */,
 				E99EEE2121C5B1EB00F721A6 /* ViewController+Misc.swift */,
@@ -134,9 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E96A941C212D309600F62060 /* Build configuration list for PBXNativeTarget "NotchArt" */;
 			buildPhases = (
+				39439B53495FA714AD444C16 /* [CP] Check Pods Manifest.lock */,
 				E96A9406212D309300F62060 /* Sources */,
 				E96A9407212D309300F62060 /* Frameworks */,
 				E96A9408212D309300F62060 /* Resources */,
+				9D47A0CA5E666545C021B53E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -200,6 +226,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		39439B53495FA714AD444C16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NotchArt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D47A0CA5E666545C021B53E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NotchArt/Pods-NotchArt-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SideVolumeHUD/SideVolumeHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Volumizer/Volumizer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideVolumeHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Volumizer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NotchArt/Pods-NotchArt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E96A9406212D309300F62060 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -209,7 +276,7 @@
 				E94D345021B3EDB100857647 /* ViewController+Collectionview.swift in Sources */,
 				E9DE0E2721D16F6000E57BB2 /* VideoFilesCollectionViewController.swift in Sources */,
 				E96A9410212D309300F62060 /* ViewController.swift in Sources */,
-				3670AEA02291D62900BB6913 /* KVolumeSlider.swift in Sources */,
+				3670AE9C2291C7B900BB6913 /* KVolumeSlider.swift in Sources */,
 				E96A940E212D309300F62060 /* AppDelegate.swift in Sources */,
 				E99EEE2221C5B1EB00F721A6 /* ViewController+Misc.swift in Sources */,
 				E9D388A021E20E4E002F12C5 /* SettingsTableViewController.swift in Sources */,
@@ -360,10 +427,12 @@
 		};
 		E96A941D212D309600F62060 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4341F9F67399207D72E5F55C /* Pods-NotchArt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YX56X85BZA;
+				DEVELOPMENT_TEAM = NGDF6JH68A;
 				INFOPLIST_FILE = NotchArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -372,6 +441,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MDAK.NotchArt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -379,10 +449,12 @@
 		};
 		E96A941E212D309600F62060 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9A4454A6308D33BCDAA4204 /* Pods-NotchArt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YX56X85BZA;
+				DEVELOPMENT_TEAM = NGDF6JH68A;
 				INFOPLIST_FILE = NotchArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -391,6 +463,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MDAK.NotchArt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

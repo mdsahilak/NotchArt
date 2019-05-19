@@ -1,0 +1,20 @@
+PODS:
+  - SideVolumeHUD (1.0.5)
+  - Volumizer (1.1.2)
+
+DEPENDENCIES:
+  - SideVolumeHUD
+  - Volumizer
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SideVolumeHUD
+    - Volumizer
+
+SPEC CHECKSUMS:
+  SideVolumeHUD: 34af8e0702d8a00060d2e1f7aa4b3ee84c101bbb
+  Volumizer: f9c6bb9d951433c98395bd06dc9719e6058def4e
+
+PODFILE CHECKSUM: f5c55754c69870d62c155082f46916064e458b21
+
+COCOAPODS: 1.5.2

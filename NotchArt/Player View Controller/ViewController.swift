@@ -11,6 +11,7 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 import LocalAuthentication
+import Volumizer
 
 class ViewController: UIViewController {
     
@@ -135,11 +136,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let volumeBar = KVolumeSlider()
-        self.view.addSubview(volumeBar)
+//        Volumizer.configure()
         
         initializeVideoPlayerWithVideo()
         updatePLayerLayerToUI()
+        
+//        let volumeBar = KVolumeSlider()
+//        self.view.addSubview(volumeBar)
         
         videoAsset = player?.currentItem?.asset
         videoDuration = videoAsset?.duration.seconds
@@ -252,14 +255,14 @@ class ViewController: UIViewController {
             playVideo()
         }
         
-        eyeHealthTimer = Timer.scheduledTimer(timeInterval: 20*60 + 25, target: self, selector: #selector(eyeHealthTimerCalled), userInfo: nil, repeats: true)
+//        eyeHealthTimer = Timer.scheduledTimer(timeInterval: 20*60 + 25, target: self, selector: #selector(eyeHealthTimerCalled), userInfo: nil, repeats: true)
         
         indexPathsForPlayedItems.append(selectedFileIndexPath)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        updateUITimer.invalidate()
-        eyeHealthTimer.invalidate()
+//        updateUITimer.invalidate()
+//        eyeHealthTimer.invalidate()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -292,23 +295,23 @@ class ViewController: UIViewController {
         //
     }
     
-    @objc func eyeHealthTimerCalled() {
-        pauseVideo()
-        
-        let alertController = UIAlertController(title: "20-20-20 Rule", message: "Every 20 minutes look at something 20 feet away for 20 seconds. This feature helps prevent eye strain and related problems. We'll tap you when your ready!", preferredStyle: .alert)
-        let impactGen = UIImpactFeedbackGenerator(style: .heavy)
-        
-        impactGen.impactOccurred()
-        present(alertController, animated: true) {
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(21), execute: {
-                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
-                self.dismiss(animated: true, completion: { self.playVideo() })
-            })
-            
-        }
-    }
-    
+//    @objc func eyeHealthTimerCalled() {
+//        pauseVideo()
+//
+//        let alertController = UIAlertController(title: "20-20-20 Rule", message: "Every 20 minutes look at something 20 feet away for 20 seconds. This feature helps prevent eye strain and related problems. We'll tap you when your ready!", preferredStyle: .alert)
+//        let impactGen = UIImpactFeedbackGenerator(style: .heavy)
+//
+//        impactGen.impactOccurred()
+//        present(alertController, animated: true) {
+//
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(21), execute: {
+//                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+//                self.dismiss(animated: true, completion: { self.playVideo() })
+//            })
+//
+//        }
+//    }
+//
     // ---------- Implementations For Player Controls. --------- //
     
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
