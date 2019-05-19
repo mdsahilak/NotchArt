@@ -135,6 +135,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let volumeBar = KVolumeSlider()
+        self.view.addSubview(volumeBar)
+        
         initializeVideoPlayerWithVideo()
         updatePLayerLayerToUI()
         

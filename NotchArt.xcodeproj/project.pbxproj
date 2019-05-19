@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3670AEA02291D62900BB6913 /* KVolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670AE9F2291D62900BB6913 /* KVolumeSlider.swift */; };
 		E903559821DD5313000D908E /* Subtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903559721DD5313000D908E /* Subtitle.swift */; };
 		E92A396E219DD4D9005F2C6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E92A396C219DD4D9005F2C6C /* Main.storyboard */; };
 		E92A397121A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A397021A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3670AE9F2291D62900BB6913 /* KVolumeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVolumeSlider.swift; sourceTree = "<group>"; };
 		E903559721DD5313000D908E /* Subtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subtitle.swift; sourceTree = "<group>"; };
 		E92A396D219DD4D9005F2C6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E92A397021A0ABA2005F2C6C /* UIview+AVPlayerLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIview+AVPlayerLayer.swift"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		E9BBE41B221B03D60030A0F0 /* Player View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3670AE9F2291D62900BB6913 /* KVolumeSlider.swift */,
 				E96A940F212D309300F62060 /* ViewController.swift */,
 				E99EEE1F21C5B17D00F721A6 /* ViewController++.swift */,
 				E99EEE2121C5B1EB00F721A6 /* ViewController+Misc.swift */,
@@ -206,6 +209,7 @@
 				E94D345021B3EDB100857647 /* ViewController+Collectionview.swift in Sources */,
 				E9DE0E2721D16F6000E57BB2 /* VideoFilesCollectionViewController.swift in Sources */,
 				E96A9410212D309300F62060 /* ViewController.swift in Sources */,
+				3670AEA02291D62900BB6913 /* KVolumeSlider.swift in Sources */,
 				E96A940E212D309300F62060 /* AppDelegate.swift in Sources */,
 				E99EEE2221C5B1EB00F721A6 /* ViewController+Misc.swift in Sources */,
 				E9D388A021E20E4E002F12C5 /* SettingsTableViewController.swift in Sources */,
