@@ -29,6 +29,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3659829B2291E26D006B2153 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3659829D2291E274006B2153 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3659829F2291E27D006B2153 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		365982A12291E287006B2153 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		365982A32291E293006B2153 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		365982A52291E29D006B2153 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		365982A72291E2A6006B2153 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		365982A92291E2AF006B2153 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		365982AB2291E2B7006B2153 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		365982AD2291E2C4006B2153 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		365982AF2291E2CE006B2153 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		365982B12291E2D5006B2153 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		365982B32291E2DC006B2153 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		365982B52291E2E2006B2153 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		365982B72291E2E9006B2153 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		365982B92291E2EF006B2153 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3670AE9B2291C7B900BB6913 /* KVolumeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVolumeSlider.swift; sourceTree = "<group>"; };
 		4341F9F67399207D72E5F55C /* Pods-NotchArt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotchArt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotchArt/Pods-NotchArt.debug.xcconfig"; sourceTree = "<group>"; };
 		60B80D8F29B83D287B67F0C5 /* Pods_NotchArt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotchArt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +94,22 @@
 		DB6834320445EFDEEAE0130D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				365982B92291E2EF006B2153 /* UIKit.framework */,
+				365982B72291E2E9006B2153 /* VideoToolbox.framework */,
+				365982B52291E2E2006B2153 /* Security.framework */,
+				365982B32291E2DC006B2153 /* QuartzCore.framework */,
+				365982B12291E2D5006B2153 /* OpenGLES.framework */,
+				365982AF2291E2CE006B2153 /* libiconv.tbd */,
+				365982AD2291E2C4006B2153 /* libbz2.tbd */,
+				365982AB2291E2B7006B2153 /* Foundation.framework */,
+				365982A92291E2AF006B2153 /* CoreVideo.framework */,
+				365982A72291E2A6006B2153 /* CoreText.framework */,
+				365982A52291E29D006B2153 /* CoreMedia.framework */,
+				365982A32291E293006B2153 /* CoreGraphics.framework */,
+				365982A12291E287006B2153 /* CoreFoundation.framework */,
+				3659829F2291E27D006B2153 /* CFNetwork.framework */,
+				3659829D2291E274006B2153 /* AVFoundation.framework */,
+				3659829B2291E26D006B2153 /* AudioToolbox.framework */,
 				60B80D8F29B83D287B67F0C5 /* Pods_NotchArt.framework */,
 			);
 			name = Frameworks;
