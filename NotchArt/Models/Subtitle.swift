@@ -4,7 +4,7 @@
 //
 //
 // 
-//
+// Not mine. Got from github. 
 
 import Foundation
 import ObjectiveC

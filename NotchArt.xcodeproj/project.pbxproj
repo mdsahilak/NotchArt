@@ -62,9 +62,9 @@
 		E96A9401212D309200F62060 = {
 			isa = PBXGroup;
 			children = (
+				E9DF46892284876200819343 /* README.md */,
 				E96A940C212D309300F62060 /* NotchArt */,
 				E96A940B212D309300F62060 /* Products */,
-				E9DF46892284876200819343 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
